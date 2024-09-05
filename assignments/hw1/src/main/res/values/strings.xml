@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="winter">It\'s getting chilly… Winter has arrived!</string>
+  <string name="summer">The sun is shining bright &#8212; Summer has arrived!</string>
+  <string name="spring">The flowers are blooming, Spring is here!</string>
+  <string name="autumn">The leaves are falling; Autumn is here!</string>
+  <string name="error">That temperature seems a bit off!</string>
+</resources>

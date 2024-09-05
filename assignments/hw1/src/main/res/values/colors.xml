@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <color name="winter">#2196f3</color>
+  <color name="summer">#ff9800</color>
+  <color name="spring">#4caf50</color>
+  <color name="autumn">#795548</color>
+  <color name="error">#f44336</color> <!-- Red 500 -->
+</resources>
