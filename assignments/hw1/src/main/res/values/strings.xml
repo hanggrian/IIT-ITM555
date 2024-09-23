@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="winter">It\'s getting chilly… Winter has arrived!</string>
-  <string name="summer">The sun is shining bright &#8212; Summer has arrived!</string>
-  <string name="spring">The flowers are blooming, Spring is here!</string>
-  <string name="autumn">The leaves are falling; Autumn is here!</string>
-  <string name="error">That temperature seems a bit off!</string>
+  <string name="about">About</string>
+  <string name="celsius">Celsius</string>
+  <string name="fahrenheit">Fahrenheit</string>
+
+  <string name="colon_temperature">Temperature:</string>
+  <string name="colon_unit">Unit:</string>
+
+  <string name="desc_welcome">Oh, hi there!</string>
+  <string name="desc_temperature">Enter conversion input.</string>
+  <string name="desc_season">Predicted season given the temperature value.</string>
+  <string name="desc_season_winter">It\'s getting chilly… Winter has arrived!</string>
+  <string name="desc_season_summer">The sun is shining bright &#8212; Summer has arrived!</string>
+  <string name="desc_season_spring">The flowers are blooming, Spring is here!</string>
+  <string name="desc_season_autumn">The leaves are falling; Autumn is here!</string>
+  <string name="desc_season_error">That temperature seems a bit off!</string>
 </resources>

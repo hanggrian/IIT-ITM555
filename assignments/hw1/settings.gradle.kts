@@ -8,4 +8,4 @@ dependencyResolutionManagement.repositories {
     google()
 }
 
-rootProject.name = "hw1"
+rootProject.name = "TempConverter1"

@@ -1,4 +1,4 @@
-package com.example.temperature;
+package com.example.tempconverter1;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
+/**
+ * A simple dialog describing what the application does. This dialog must be attached to a
+ * {@link DialogFragment}.
+ */
 public class AboutDialog extends DialogFragment {
     public static final String TAG = "AboutDialog";
 

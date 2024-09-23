@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="about">About</string>
+  <string name="back">Back</string>
+  <string name="show_five_day_forecast">Show 5-Day Forecast</string>
+  <string name="five_day_forecast">5-Day Forecast (2024)</string>
+
+  <string name="desc_weather">An image depicting weather of temperature entry.</string>
+
+  <!-- 5-Day Chicago forecast starting from 22th September 2024, data obtained from AccuWeather. -->
+  <string-array name="wkTemps">
+    <item>71 °F</item>
+    <item>66 °F</item>
+    <item>64 °F</item>
+    <item>72 °F</item>
+    <item>70 °F</item>
+  </string-array>
+  <string-array name="wkDates">
+    <item>Sunday, September 22</item>
+    <item>Monday, September 23</item>
+    <item>Tuesday, September 24</item>
+    <item>Wednesday, September 25</item>
+    <item>Thursday, September 26</item>
+  </string-array>
+</resources>

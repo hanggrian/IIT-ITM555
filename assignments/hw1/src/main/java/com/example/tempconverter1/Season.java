@@ -1,4 +1,4 @@
-package com.example.temperature;
+package com.example.tempconverter1;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -10,12 +10,15 @@ import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 import java.util.Objects;
 
+/**
+ * Temporal seasons in enumeration to obtain local resources defined in constructor parameters.
+ */
 public enum Season {
-    WINTER(R.drawable.winter, R.color.winter, R.string.winter),
-    SUMMER(R.drawable.summer, R.color.summer, R.string.summer),
-    SPRING(R.drawable.spring, R.color.spring, R.string.spring),
-    AUTUMN(R.drawable.autumn, R.color.autumn, R.string.autumn),
-    ERROR(R.drawable.error, R.color.error, R.string.error);
+    WINTER(R.drawable.winter, R.color.winter, R.string.desc_season_winter),
+    SUMMER(R.drawable.summer, R.color.summer, R.string.desc_season_summer),
+    SPRING(R.drawable.spring, R.color.spring, R.string.desc_season_spring),
+    AUTUMN(R.drawable.autumn, R.color.autumn, R.string.desc_season_autumn),
+    ERROR(R.drawable.error, R.color.error, R.string.desc_season_error);
 
     private final int drawableId;
     private final int colorId;
@@ -28,7 +31,7 @@ public enum Season {
     }
 
     @NonNull
-    public Drawable getDrawable(@NonNull Context context) {
+    public Drawable getLogo(@NonNull Context context) {
         return Objects.requireNonNull(ContextCompat.getDrawable(context, drawableId));
     }
 
@@ -38,7 +41,7 @@ public enum Season {
     }
 
     @NonNull
-    public CharSequence getText(@NonNull Context context) {
+    public CharSequence getDescription(@NonNull Context context) {
         return context.getText(textId);
     }
 }

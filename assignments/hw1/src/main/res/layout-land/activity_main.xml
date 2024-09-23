@@ -18,16 +18,18 @@
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:baselineAligned="false"
     android:orientation="horizontal"
+    android:padding="16dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_weight="1"
+      android:layout_weight="2"
       android:gravity="center"
       android:orientation="vertical"
-      android:padding="32dp">
+      android:padding="16dp">
 
       <LinearLayout
         android:layout_width="match_parent"
@@ -35,17 +37,18 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
           android:layout_width="128dp"
           android:layout_height="wrap_content"
-          android:text="Temperature:"
+          android:text="@string/colon_temperature"
           android:textAppearance="@style/TextAppearance.Material3.TitleMedium"/>
 
         <EditText
           android:id="@+id/input"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:hint="Conversion input"
+          android:hint="@string/desc_temperature"
+          android:importantForAutofill="no"
           android:inputType="numberDecimal|numberSigned"/>
       </LinearLayout>
 
@@ -56,10 +59,10 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
           android:layout_width="128dp"
           android:layout_height="wrap_content"
-          android:text="Unit:"
+          android:text="@string/colon_unit"
           android:textAppearance="@style/TextAppearance.Material3.TitleMedium"/>
 
         <RadioGroup
@@ -73,7 +76,7 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:onClick="calculate"
-            android:text="Fahrenheit"/>
+            android:text="@string/fahrenheit"/>
 
           <RadioButton
             android:id="@+id/celsiusRadio"
@@ -81,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:onClick="calculate"
-            android:text="Celcius"/>
+            android:text="@string/celsius"/>
         </RadioGroup>
       </LinearLayout>
     </LinearLayout>
@@ -89,30 +92,32 @@
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_weight="2"
+      android:layout_weight="3"
       android:gravity="center"
       android:orientation="vertical"
-      android:paddingEnd="32dp">
+      android:paddingStart="16dp"
+      android:paddingEnd="16dp">
 
       <ImageView
         android:id="@+id/image"
         android:layout_width="128dp"
         android:layout_height="128dp"
+        android:contentDescription="@string/desc_season"
         android:src="@drawable/hi"/>
 
-      <TextView
+      <com.google.android.material.textview.MaterialTextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"/>
 
-      <TextView
+      <com.google.android.material.textview.MaterialTextView
         android:id="@+id/subtitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Oh, hi there!"
+        android:text="@string/desc_welcome"
         android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"/>
     </LinearLayout>
   </LinearLayout>

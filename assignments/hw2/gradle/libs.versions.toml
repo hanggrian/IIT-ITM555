@@ -1,0 +1,49 @@
+[versions]
+jdk = "21"
+jre = "8"
+checkstyle = "10.17.0"
+sdk-min = "26"
+sdk-target = "34"
+android-plugin = "8.6.1"
+androidx = "1.7.0"
+androidx-lifecycle = "2.8.6"
+androidx-test = "1.6.1"
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-plugin" }
+
+[libraries]
+# lint
+rulebook-checkstyle = "com.hanggrian.rulebook:rulebook-checkstyle:0.1"
+# main
+material = { module = "com.google.android.material:material", version.ref = "androidx" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx" }
+androidx-coordinatorlayout = "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
+androidx-recyclerview = "androidx.recyclerview:recyclerview:1.3.2"
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-extensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
+# test
+androidx-test-core = { module = "androidx.test:core", version.ref = "androidx-test" }
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test" }
+androidx-test-junit = "androidx.test.ext:junit:1.2.1"
+robolectric = "org.robolectric:robolectric:4.13"
+truth = "com.google.truth:truth:1.4.4"
+
+[bundles]
+androidx = [
+  "material",
+  "androidx-appcompat",
+  "androidx-coordinatorlayout",
+  "androidx-recyclerview",
+  "androidx-lifecycle-viewmodel",
+  "androidx-lifecycle-livedata",
+  "androidx-lifecycle-extensions",
+]
+androidx-test = [
+  "androidx-test-core",
+  "androidx-test-runner",
+  "androidx-test-junit",
+  "robolectric",
+  "truth",
+]

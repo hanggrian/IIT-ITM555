@@ -1,9 +1,12 @@
-package com.example.temperature;
+package com.example.tempconverter1;
 
 import androidx.annotation.NonNull;
 import java.time.temporal.ValueRange;
 import java.util.Locale;
 
+/**
+ * Data class that represents a temperature value in fahrenheit or celsius.
+ */
 public class Temperature {
     private static final ValueRange RANGE_FAHRENHEIT = ValueRange.of(-130, 140);
     private static final ValueRange RANGE_CELSIUS = ValueRange.of(-90, 60);
@@ -11,11 +14,22 @@ public class Temperature {
     private Double value;
     private Unit unit;
 
+    /**
+     * Define temperature value and unit of this temperature.
+     *
+     * @param value a decimal.
+     * @param unit celsius or fahrenheit.
+     */
     public Temperature(double value, @NonNull Unit unit) {
         this.value = value;
         this.unit = unit;
     }
 
+    /**
+     * Returns the predicted season given current temperature, or {@link Season#ERROR} if user
+     * enters a temperature that does not fall within reasonable range.
+     */
+    @NonNull
     public Season getSeason() {
         if (unit == Unit.FAHRENHEIT) {
             if (!RANGE_FAHRENHEIT.isValidIntValue(value.intValue())) {
@@ -41,6 +55,9 @@ public class Temperature {
         return Season.WINTER;
     }
 
+    /**
+     * Toggles temperature unit, thereby changing its value.
+     */
     public void convert() {
         if (unit == Unit.FAHRENHEIT) {
             value = (value - 32) * 5 / 9;

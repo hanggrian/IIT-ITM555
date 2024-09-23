@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
+  <!-- TOML property variable is not always the latest. -->
+  <issue id="GradleDependency" severity="ignore"/>
+
+  <!-- Drawables are official Material Symbols. -->
+  <issue id="VectorPath" severity="ignore"/>
+
+  <!-- Sample application does not have an icon. -->
   <issue id="MissingApplicationIcon" severity="ignore"/>
-  <issue id="HardcodedText" severity="ignore"/>
+
+  <!-- Deliberate violation. -->
   <issue id="UsingOnClickInXml" severity="ignore"/>
-  <issue id="Autofill" severity="ignore"/>
-  <issue id="ContentDescription" severity="ignore"/>
-  <issue id="RtlSymmetry" severity="ignore"/>
 </lint>

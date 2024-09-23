@@ -1,4 +1,4 @@
-package com.example.temperature;
+package com.example.tempconverter1;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -23,8 +23,7 @@ public class MainActivityTest {
     public void testFahrenheitToCelsius() {
         activity.input.setText("10");
 
-        assertThat(activity.titleText.getText().toString())
-            .isEqualTo("-12.2 °C");
+        assertThat(activity.titleText.getText().toString()).isEqualTo("-12.2 °C");
     }
 
     @Test
@@ -32,7 +31,6 @@ public class MainActivityTest {
         activity.celsiusRadio.setChecked(true);
         activity.input.setText("0");
 
-        assertThat(activity.titleText.getText().toString())
-            .isEqualTo("32.0 °F");
+        assertThat(activity.titleText.getText().toString()).isEqualTo("32.0 °F");
     }
 }

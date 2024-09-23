@@ -2,11 +2,12 @@
 jdk = "21"
 jre = "8"
 checkstyle = "10.17.0"
+kotlin = "2.0.20"
 sdk-min = "26"
-sdk-target = "33"
-android-plugin = "8.5.2"
-androidx = "1.6.0"
-androidx-test = "1.5.0"
+sdk-target = "34"
+android-plugin = "8.6.1"
+androidx = "1.7.0"
+androidx-test = "1.6.1"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-plugin" }
@@ -17,26 +18,24 @@ rulebook-checkstyle = "com.hanggrian.rulebook:rulebook-checkstyle:0.1"
 # main
 material = { module = "com.google.android.material:material", version.ref = "androidx" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx" }
-androidx-multidex = "androidx.multidex:multidex:2.0.1"
 androidx-coordinatorlayout = "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
 # test
 androidx-test-core = { module = "androidx.test:core", version.ref = "androidx-test" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test" }
-androidx-test-junit = "androidx.test.ext:junit:1.1.5"
-robolectric = "org.robolectric:robolectric:4.10.3"
+androidx-test-junit = "androidx.test.ext:junit:1.2.1"
+robolectric = "org.robolectric:robolectric:4.13"
 truth = "com.google.truth:truth:1.4.4"
 
 [bundles]
 androidx = [
   "material",
   "androidx-appcompat",
-  "androidx-multidex",
-  "androidx-coordinatorlayout"
+  "androidx-coordinatorlayout",
 ]
 androidx-test = [
   "androidx-test-core",
   "androidx-test-runner",
   "androidx-test-junit",
   "robolectric",
-  "truth"
+  "truth",
 ]

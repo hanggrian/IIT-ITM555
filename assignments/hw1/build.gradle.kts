@@ -8,6 +8,7 @@ val jreVersion = JavaLanguageVersion.of(libs.versions.jre.get())
 plugins {
     alias(libs.plugins.android.application)
     checkstyle
+    kotlin("android") version libs.versions.kotlin.get() // required by some dependencies
 }
 
 group = releaseGroup

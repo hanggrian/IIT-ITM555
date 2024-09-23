@@ -1,4 +1,4 @@
-package com.example.temperature;
+package com.example.tempconverter1;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,7 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
+/**
+ * The first and only activity of this application. It uses the deprecated XML {@code OnClick}
+ * binding into {@link #calculate(View)} to update controls based on user input.
+ */
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     EditText input;
@@ -72,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
     public void calculate(View view) {
         String s = input.getText().toString();
         if (TextUtils.isEmpty(s) || s.equals("-")) {
+            image.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.hi));
+            image.clearColorFilter();
+            titleText.setText(null);
+            subtitleText.setText(R.string.desc_welcome);
             return;
         }
 
@@ -87,10 +96,10 @@ public class MainActivity extends AppCompatActivity {
         String title = temperature.toString();
         Season season = temperature.getSeason();
         int color = season.getColor(this);
-        image.setImageDrawable(season.getDrawable(this));
+        image.setImageDrawable(season.getLogo(this));
         image.setColorFilter(color);
         titleText.setText(title);
         titleText.setTextColor(color);
-        subtitleText.setText(season.getText(this));
+        subtitleText.setText(season.getDescription(this));
     }
 }
