@@ -21,7 +21,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void testSlider() {
+    public void sliderValue() {
         activity.slider.setValue(10);
 
         assertThat(activity.text1.getText().toString()).isEqualTo("Input: 10.0 °C");
@@ -29,7 +29,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void testCheck() {
+    public void checkState() {
         activity.check.setChecked(true);
 
         assertThat(activity.text1.getVisibility()).isEqualTo(View.GONE);

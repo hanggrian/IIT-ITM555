@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
@@ -37,8 +38,9 @@ public class MainActivity extends AppCompatActivity {
     private MainViewModel viewModel;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
         layout = findViewById(R.id.layout);
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         stub = findViewById(R.id.stub);
         check = findViewById(R.id.check);
         slider = findViewById(R.id.slider);
+
         setSupportActionBar(toolbar);
 
         View inflated = stub.inflate();
@@ -55,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
         button = inflated.findViewById(R.id.button);
 
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        viewModel.temperatureData.observe(
+            this,
+            temperature -> {
+                text1.setText(String.format("Input: %s", temperature));
+                temperature.convert();
+                text2.setText(String.format("Output: %s", temperature));
+            }
+        );
 
         check.setOnCheckedChangeListener(
             (v, isChecked) -> {
@@ -75,15 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
         list.setAdapter(new ForecastAdapter());
         button.setOnClickListener(view -> check.setChecked(false));
-
-        viewModel.temperatureData.observe(
-            this,
-            temperature -> {
-                text1.setText(String.format("Input: %s", temperature));
-                temperature.convert();
-                text2.setText(String.format("Output: %s", temperature));
-            }
-        );
     }
 
     @Override

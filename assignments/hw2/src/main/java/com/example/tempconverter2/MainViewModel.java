@@ -1,5 +1,6 @@
 package com.example.tempconverter2;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -8,6 +9,7 @@ import androidx.lifecycle.ViewModel;
  * time {@link #temperatureData} changes its value.
  */
 public class MainViewModel extends ViewModel {
+    @NonNull
     public MutableLiveData<Temperature> temperatureData =
         new MutableLiveData<>(new Temperature(0, Temperature.Unit.CELSIUS));
 }

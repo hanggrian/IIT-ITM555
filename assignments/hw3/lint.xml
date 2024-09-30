@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+  <!-- TOML property variable is not always the latest. -->
+  <issue id="GradleDependency" severity="ignore"/>
+
+  <!-- Drawables are official Material Symbols. -->
+  <issue id="VectorPath" severity="ignore"/>
+
+  <!-- Sample application does not have an icon. -->
+  <issue id="MissingApplicationIcon" severity="ignore"/>
+
+  <!-- Steve Jobs' images are provided by lecturer. -->
+  <issue id="IconDensities" severity="ignore"/>
+
+  <!-- Custom item layout are more flexible. -->
+  <issue id="UseCompoundDrawables" severity="ignore"/>
+</lint>

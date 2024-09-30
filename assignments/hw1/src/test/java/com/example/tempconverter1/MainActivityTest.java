@@ -20,14 +20,14 @@ public class MainActivityTest {
     }
 
     @Test
-    public void testFahrenheitToCelsius() {
+    public void fahrenheitToCelsius() {
         activity.input.setText("10");
 
         assertThat(activity.titleText.getText().toString()).isEqualTo("-12.2 °C");
     }
 
     @Test
-    public void testCelsiusToFahrenheit() {
+    public void celsiusToFahrenheit() {
         activity.celsiusRadio.setChecked(true);
         activity.input.setText("0");
 
