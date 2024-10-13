@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="16dp"
+  app:cardCornerRadius="8dp">
+
+  <GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/titleText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_row="0"
+      android:layout_column="0"
+      android:layout_columnSpan="2"
+      android:layout_marginBottom="8dp"
+      android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+      android:textColor="?colorOnSurface"/>
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/yearText"
+      style="@style/Widget.Playlist.TextView.Caption"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_row="1"
+      android:layout_column="0"
+      android:layout_columnWeight="1"
+      android:drawableStart="@drawable/caption_year"/>
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/artistText"
+      style="@style/Widget.Playlist.TextView.Caption"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_row="1"
+      android:layout_column="1"
+      android:drawableStart="@drawable/caption_artist"/>
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/priceText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_row="2"
+      android:layout_column="0"
+      android:layout_columnSpan="2"
+      android:layout_marginTop="8dp"
+      android:drawableStart="@drawable/caption_price"
+      android:drawablePadding="4dp"
+      android:drawableTint="?colorOnSurfaceInverse"
+      android:text="@string/highest_price_desc"
+      android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+      android:textColor="?colorOnSurfaceInverse"
+      android:visibility="gone"/>
+  </GridLayout>
+</androidx.cardview.widget.CardView>

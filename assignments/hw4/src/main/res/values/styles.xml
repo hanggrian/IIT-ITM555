@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <style name="Widget.Playlist.TextView.Caption" parent="Widget.AppCompat.TextView">
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:textAppearance">@style/TextAppearance.Material3.BodyMedium</item>
+    <item name="android:textColor">@color/semi_transparent</item>
+    <item name="android:drawablePadding">4dp</item>
+    <item name="android:drawableTint">@color/semi_transparent</item>
+  </style>
+
+  <style name="Widget.Playlist.TextView.Display" parent="Widget.AppCompat.TextView">
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:textAppearance">@style/TextAppearance.Material3.BodyLarge</item>
+    <item name="android:textColor">?colorOnSurface</item>
+    <item name="android:drawablePadding">8dp</item>
+    <item name="android:drawableTint">?colorOnSurface</item>
+  </style>
+</resources>

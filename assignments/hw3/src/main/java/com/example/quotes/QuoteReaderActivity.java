@@ -1,6 +1,5 @@
 package com.example.quotes;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,8 +24,8 @@ import java.util.List;
 
 /**
  * The first activity that is shown after splash screen displayed using
- * {@link SplashScreen#installSplashScreen(Activity)}. It contains a list control of Steve Jobs'
- * quotes.
+ * {@link SplashScreen#installSplashScreen(android.app.Activity)}. It contains a list control of
+ * Steve Jobs' quotes.
  */
 public class QuoteReaderActivity extends AppCompatActivity {
     private static final long DURATION_SPLASH = 5000L;

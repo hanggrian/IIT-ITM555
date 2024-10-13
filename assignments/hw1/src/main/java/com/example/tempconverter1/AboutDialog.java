@@ -18,8 +18,8 @@ public class AboutDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         return new AlertDialog.Builder(requireContext())
-            .setTitle("About")
-            .setMessage("A simple temperature converter app.")
+            .setTitle(R.string.about)
+            .setMessage(R.string.app_about)
             .setPositiveButton(android.R.string.ok, (dialog, which) -> {})
             .create();
     }

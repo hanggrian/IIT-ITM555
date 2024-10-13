@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="about">About</string>
+  <string name="available">Available</string>
+  <string name="forgot_password">Forgot Password</string>
+  <string name="login_to_musicplaylist">Login to MusicPlaylist</string>
+  <string name="password">Password</string>
+  <string name="proceed">Proceed</string>
+  <string name="refresh">Refresh</string>
+  <string name="unavailable">Unavailable</string>
+  <string name="username">Username</string>
+
+  <string name="app_about">A music playlist app that retrieves catalogue using Rest API.</string>
+
+  <string name="forgot_password_">Forgot password?</string>
+  <string name="forgot_password_desc">Username need to be at least \"4 non-whitespace characters\" and password is \"%s\".</string>
+  <string name="highest_price_desc">Highest price from the catalog.</string>
+  <string name="invalid_credentials_desc">Wrong username and password combination, check "Forgot password?" for more information.</string>
+  <string name="purchase_desc">Purchase button is activated when music isn\'t yet sold.</string>
+  <string name="redirecting_">Redirecting…</string>
+</resources>

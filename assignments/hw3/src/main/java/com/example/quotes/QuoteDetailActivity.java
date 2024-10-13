@@ -5,17 +5,12 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.Window;
-import android.view.WindowInsets;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.palette.graphics.Palette;
 import androidx.palette.graphics.Target;
@@ -45,7 +40,7 @@ public class QuoteDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quote_detail);
         appbar = findViewById(R.id.appbar);
         toolbar = findViewById(R.id.toolbar);
-        scrollView = findViewById(R.id.scroll_view);
+        scrollView = findViewById(R.id.scrollView);
         image = findViewById(R.id.image);
         text = findViewById(R.id.text);
 

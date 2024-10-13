@@ -1,4 +1,4 @@
-# [Homework 2](https://github.com/hanggrian/IIT-ITM515/blob/assets/assignments/hw2.docx): Temperature Converter 2
+# [Homework 2](https://github.com/hanggrian/IIT-ITM555/blob/assets/assignments/hw2.docx): Temperature Converter 2
 
 A continuation of the previous homework regarding temperature conversion. In
 this example, the application accepts user input in form of slider instead

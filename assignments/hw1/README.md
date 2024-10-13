@@ -1,4 +1,4 @@
-# [Homework 1](https://github.com/hanggrian/IIT-ITM515/blob/assets/assignments/hw1.docx): Temperature Converter 1
+# [Homework 1](https://github.com/hanggrian/IIT-ITM555/blob/assets/assignments/hw1.docx): Temperature Converter 1
 
 A simple Android application that converts temperature between Celsius and
 Fahrenheit and vice-versa. Additionally, the application also shows the likely

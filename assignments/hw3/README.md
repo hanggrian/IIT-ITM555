@@ -1,4 +1,4 @@
-# [Homework 3](https://github.com/hanggrian/IIT-ITM515/blob/assets/assignments/hw3.docx): Famous Quotes
+# [Homework 3](https://github.com/hanggrian/IIT-ITM555/blob/assets/assignments/hw3.docx): Famous Quotes
 
 An Android app that lists Steve Jobs' popular quotes and thumbnail pictures.
 Upon clicking a quote, the app will redirect the user to a new activity showing

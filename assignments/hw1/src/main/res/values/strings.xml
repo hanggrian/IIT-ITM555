@@ -7,6 +7,8 @@
   <string name="colon_temperature">Temperature:</string>
   <string name="colon_unit">Unit:</string>
 
+  <string name="app_about">A simple temperature converter app.</string>
+
   <string name="desc_welcome">Oh, hi there!</string>
   <string name="desc_temperature">Enter conversion input.</string>
   <string name="desc_season">Predicted season given the temperature value.</string>
