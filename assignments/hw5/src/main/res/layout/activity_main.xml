@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:animateLayoutChanges="true"
+  tools:context=".MainActivity">
+
+  <com.google.android.material.appbar.AppBarLayout
+    android:id="@+id/appbarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="192dp">
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+      android:id="@+id/toolbarLayout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:expandedTitleTextAppearance="@style/TextAppearance.Material3.DisplayMedium"
+      app:layout_scrollFlags="noScroll">
+
+      <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"/>
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+  </com.google.android.material.appbar.AppBarLayout>
+
+  <ProgressBar
+    android:id="@+id/progress"
+    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:max="4"
+    android:min="0"
+    android:progressTint="?colorPrimary"
+    app:layout_anchor="@id/appbarLayout"
+    app:layout_anchorGravity="bottom"/>
+
+  <LinearLayout
+    android:id="@+id/refreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:padding="16dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:width="400dp"
+      android:paddingTop="8dp"
+      android:paddingBottom="8dp"
+      android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"/>
+
+    <RadioGroup
+      android:id="@+id/radioGroup"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:orientation="horizontal">
+
+      <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/trueRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/radio_true"/>
+
+      <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/falseRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/radio_false"/>
+    </RadioGroup>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+      android:id="@+id/displayButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="@string/btn_display"
+      app:icon="@drawable/btn_display"/>
+
+    <RatingBar
+      android:id="@+id/rating"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:isIndicator="true"
+      android:numStars="5"
+      android:rating="0.0"
+      android:stepSize="1.0"/>
+  </LinearLayout>
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/nextButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="32dp"
+    android:contentDescription="@string/btn_next_desc"
+    app:layout_anchor="@id/appbarLayout"
+    app:layout_anchorGravity="bottom|end"
+    app:srcCompat="@drawable/btn_next"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView list;
     Button button;
 
-    private MainViewModel viewModel;
+    MainViewModel viewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

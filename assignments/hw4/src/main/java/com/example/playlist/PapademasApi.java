@@ -13,6 +13,7 @@ import retrofit2.http.GET;
 public interface PapademasApi {
     String ENDPOINT = "http://www.papademas.net:81";
 
+    @NonNull
     @GET("/cd_catalog.json")
     Call<MusicCatalog> getMusicCatalog();
 

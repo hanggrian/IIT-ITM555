@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="about">About</string>
+  <string name="loading">Loading</string>
+  <string name="reset">Reset</string>
+
+  <string name="app_name">PopupQuiz</string>
+  <string name="app_about">A sliding quiz application with a simple yes-or-no answer.</string>
+
+  <string name="radio_true">True</string>
+  <string name="radio_false">False</string>
+
+  <string name="btn_display">Display Result</string>
+  <string name="btn_next_desc">Go to next question.</string>
+
+  <string name="are_you_sure_">Are you sure?</string>
+  <string name="please_wait_">Please wait…</string>
+  <string name="quiz_d">Quiz #%1$d</string>
+  <string name="correct_">Correct!</string>
+  <string name="wrong_">Wrong!</string>
+</resources>

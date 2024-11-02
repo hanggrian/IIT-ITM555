@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     MusicAdapter adapter;
     PapademasApi api;
 
+    private boolean isRefreshing;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void refresh() {
+        if (isRefreshing) {
+            return;
+        }
+        isRefreshing = true;
         Executors.newSingleThreadExecutor().execute(
             () -> {
                 try {
@@ -97,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
                     new Handler(Looper.getMainLooper()).post(
                         () -> {
                             refreshLayout.setRefreshing(false);
+                            isRefreshing = false;
+
                             adapter.replaceAll(
                                 catalog != null
                                     ? catalog.getBluesy()
@@ -105,6 +113,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     );
                 } catch (IOException e) {
+                    refreshLayout.setRefreshing(false);
+                    isRefreshing = false;
+
                     String message = e.getMessage();
                     if (message == null) {
                         message = "Unknown error.";

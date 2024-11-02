@@ -22,9 +22,9 @@
       style="@style/Widget.AppCompat.ProgressBar.Horizontal"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:backgroundTint="?colorAccent"
       android:indeterminate="true"
-      android:visibility="gone"/>
+      android:indeterminateTint="?colorPrimary"
+      android:visibility="visible"/>
   </com.google.android.material.appbar.AppBarLayout>
 
   <LinearLayout

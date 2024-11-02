@@ -10,6 +10,6 @@ import androidx.lifecycle.ViewModel;
  */
 public class MainViewModel extends ViewModel {
     @NonNull
-    public MutableLiveData<Temperature> temperatureData =
+    public final MutableLiveData<Temperature> temperatureData =
         new MutableLiveData<>(new Temperature(0, Temperature.Unit.CELSIUS));
 }
