@@ -118,7 +118,9 @@ public class MainActivity extends AppCompatActivity {
                 if (viewModel.questions.isEmpty()) {
                     return;
                 }
-                updateText(questionIndex);
+                progress.setProgress(questionIndex);
+                toolbarLayout.setTitle(getString(R.string.quiz_d, questionIndex + 1));
+                text.setText(viewModel.questions.get(questionIndex));
             }
         );
         viewModel.answerTallyData.observe(
@@ -174,12 +176,6 @@ public class MainActivity extends AppCompatActivity {
             new ConfirmDialog().show(getSupportFragmentManager(), ConfirmDialog.TAG);
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void updateText(int questionIndex) {
-        progress.setProgress(questionIndex);
-        toolbarLayout.setTitle(getString(R.string.quiz_d, questionIndex + 1));
-        text.setText(viewModel.questions.get(questionIndex));
     }
 
     private void reset() {

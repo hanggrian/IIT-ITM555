@@ -1,4 +1,4 @@
-# [Homework 5](https://github.com/hanggrian/IIT-ITM555/blob/assets/assignments/hw5.docx): Popup Quiz Report
+# [Homework 5](https://github.com/hanggrian/IIT-ITM555/blob/assets/assignments/hw5.docx): PopupQuiz Report
 
 This report contains all the codebase of the project. Several minor changes were
 made for better readability:
@@ -27,22 +27,35 @@ androidx-test = "1.6.1"
 retrofit = "2.11.0"
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "android-plugin" }
+android-application =
+  { id = "com.android.application", version.ref = "android-plugin" }
 
 [libraries]
 # lint
 rulebook-checkstyle = "com.hanggrian.rulebook:rulebook-checkstyle:0.1"
 # main
-material = { module = "com.google.android.material:material", version.ref = "androidx" }
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx" }
-androidx-coordinatorlayout = "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
-androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
-androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata", version.ref = "androidx-lifecycle" }
+material =
+  { module = "com.google.android.material:material", version.ref = "androidx" }
+androidx-appcompat =
+  { module = "androidx.appcompat:appcompat", version.ref = "androidx" }
+androidx-coordinatorlayout =
+  "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
+androidx-lifecycle-viewmodel = {
+  module = "androidx.lifecycle:lifecycle-viewmodel",
+  version.ref = "androidx-lifecycle",
+}
+androidx-lifecycle-livedata = {
+  module = "androidx.lifecycle:lifecycle-livedata",
+  version.ref = "androidx-lifecycle",
+}
 androidx-lifecycle-extensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit =
+  { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 # test
-androidx-test-core = { module = "androidx.test:core", version.ref = "androidx-test" }
-androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test" }
+androidx-test-core =
+  { module = "androidx.test:core", version.ref = "androidx-test" }
+androidx-test-runner =
+  { module = "androidx.test:runner", version.ref = "androidx-test" }
 androidx-test-junit = "androidx.test.ext:junit:1.2.1"
 
 robolectric = "org.robolectric:robolectric:4.13"

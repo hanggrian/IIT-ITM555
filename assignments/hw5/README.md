@@ -1,4 +1,4 @@
-# [Homework 5](https://github.com/hanggrian/IIT-ITM555/blob/assets/assignments/hw5.docx): Popup Quiz
+# [Homework 5](https://github.com/hanggrian/IIT-ITM555/blob/assets/assignments/hw5.docx): PopupQuiz
 
 - Progress bar and toolbar title indicate the current question number.
 - Imports [AndroidX Lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle)
@@ -6,7 +6,7 @@
 - Material3 theme compliant, supports dark mode, utilize `FloatingActionButton`
   and `ExtendedFloatingActionButton` in the same layout.
 
-## Diagrams
+## Diagram
 
 <img width="640" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw5/diagram1.svg"><br><small>Diagram 1 &mdash; Application workflow</small>
 

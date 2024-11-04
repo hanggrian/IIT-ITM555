@@ -1,4 +1,4 @@
-# [Homework 4](https://github.com/hanggrian/IIT-ITM555/blob/assets/assignments/hw4.docx): Music Playlist
+# [Homework 4](https://github.com/hanggrian/IIT-ITM555/blob/assets/assignments/hw4.docx): MusicPlaylist
 
 - `RecyclerView` with multiple item view types to display a list of songs and
   their categories, which are countries of origin.

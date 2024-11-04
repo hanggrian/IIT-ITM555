@@ -23,5 +23,5 @@ public enum State {
     /**
      * No more questions to feed, all buttons become un-clickable.
      */
-    FINISHED
+    FINISHED,
 }
