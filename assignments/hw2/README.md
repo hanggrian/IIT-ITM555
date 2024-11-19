@@ -29,7 +29,7 @@ shown in text controls as user interacts with the slider.
 Just like **Temperature Converter 1**, the application supports dark mode theme
 based on the system settings and the ability to adapt to horizontal screen.
 
-### 5-Day Weather Forecast
+### 5-Day weather forecast
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw2/screenshot2.png"><br><small>Screenshot 2 &mdash; `StubView` interface</small>
 

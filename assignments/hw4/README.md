@@ -9,7 +9,7 @@
 
 ## Screenshots
 
-### Login Screen
+### Login screen
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw4/screenshot1_1.png">
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw4/screenshot1_2.png"><br><small>Screenshot 1.1 & 1.2 &mdash; Entering credentials & login progress</small>
@@ -21,7 +21,7 @@ In this application, the user is required to login using a username and password
 combination. However, the login credentials are not validated against a server
 and instead are hardcoded in the application.
 
-### Playlist Overview
+### Playlist overview
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw4/screenshot2_1.png">
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw4/screenshot2_2.png"><br><small>Screenshot 2.1 & 2.2 &mdash; Dark & light mode</small>
@@ -32,7 +32,7 @@ to group the songs by their origin country. Additionally, the card background
 color is a randomized [Material2 color](https://m2.material.io/design/color/the-color-system.html)
 with a custom implementation that avoids the same color in a set.
 
-### Music Detail
+### Music detail
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw4/screenshot3_1.png"><br><small>Screenshot 3.1 &mdash; Half sheet in portrait</small>
 

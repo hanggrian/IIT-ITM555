@@ -35,7 +35,7 @@ appearances and flatter colors, such as toolbar without shadow or elevation.
 The `QuoteDetailActivity` displays the quote and picture in full screen with
 colorful background and text colors based on the image palette.
 
-### Splash Screen
+### Splash screen
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw3/screenshot3.png"><br><small>Screenshot 3 &mdash; 5 seconds splash</small>
 

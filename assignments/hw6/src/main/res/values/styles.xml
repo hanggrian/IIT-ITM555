@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <style name="Theme.Marks" parent="@style/Theme.Material3.DayNight.NoActionBar">
+    <item name="android:statusBarColor">?colorSurfaceVariant</item>
+  </style>
+</resources>

@@ -52,11 +52,15 @@ upon application uninstallation.
 
 ## Wireframe
 
+### Main screen tabs
+
 <img width="640" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/proj_phase1/wireframe1.png"><br><small>Wireframe 1 &mdash; Application tabs</small>
 
 The main screen is a tabbed interface with adaptive toolbar menu items. For
 example, the search button will expand to show the search bar when clicked.
 Other menu items include application information and logout button.
+
+### Search Pokémon
 
 <img width="640" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/proj_phase1/wireframe2.png"><br><small>Wireframe 2 &mdash; Search Pokémon</small>
 
@@ -65,9 +69,13 @@ redirect to the detailed view of status, evolutions and possible moves. Since
 the moves are clickable as well to show Pokémon that can learn the move, this
 create a recursive workflow detailed in the diagram above.
 
+### Search move
+
 <img width="640" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/proj_phase1/wireframe3.png"><br><small>Wireframe 3 &mdash; Search move</small>
 
 Moves use a smaller card layout that is reused in the Pokémon detailed activity.
+
+### Build team
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/proj_phase1/wireframe4_1.png">
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/proj_phase1/wireframe4_2.png"><br><small>Wireframe 4.1 & 4.2 &mdash; Build team</small>

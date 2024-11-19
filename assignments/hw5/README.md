@@ -15,7 +15,7 @@ selecting **Reset** menu item.
 
 ## Screenshots
 
-### Screen Rotation
+### Screen rotation
 
 <img width="640" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw5/screenshot1.png"><br><small>Screenshot 1 &mdash; Handling screen rotation changes</small>
 
@@ -58,7 +58,7 @@ proceed to the next question.
 If no more questions are available after answering the last question, the final
 state is reached and user can no longer interact until the quiz is reset.
 
-### Login Screen
+### Login screen
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw5/screenshot3_1.png">
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw5/screenshot3_2.png"><br><small>Screenshot 3.1 & 3.2 &mdash; Randomized question sheet</small>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="about">About</string>
+  <string name="confirm">Confirm</string>
+  <string name="id">ID</string>
+  <string name="mark">Mark</string>
+  <string name="name">Name</string>
+  <string name="reset">Reset</string>
+
+  <string name="app_name">MarksEditor</string>
+  <string name="app_about">Store student grades in persistent SQLite.</string>
+
+  <string name="btn_send_desc">Add mark to table.</string>
+  <string name="empty_desc1">🍃</string>
+  <string name="empty_desc2">Nothing to see here.</string>
+  <string name="dialog_delete_desc">Are you sure to delete %1$d. %2$s?</string>
+  <string name="dialog_clear_desc">Are you sure to clear all entries?</string>
+  <string name="menu_reset_desc">Local database cleared.</string>
+</resources>

@@ -222,7 +222,6 @@ drawable/
 <androidx.coordinatorlayout.widget.CoordinatorLayout
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:animateLayoutChanges="true"
   tools:context=".MainActivity">
 
   <com.google.android.material.appbar.AppBarLayout
@@ -367,14 +366,13 @@ drawable/
     android:title="@string/about"
     app:showAsAction="ifRoom"/>
 </menu>
-
 ```
 
 ## Java
 
-### 11. /src/main/java/com/example/quiz/
+### 10. /src/main/java/com/example/quiz/
 
-#### 11a. AboutDialog.java
+#### 10a. AboutDialog.java
 
 ```java
 /**
@@ -631,7 +629,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-#### 11c. MainViewModel.java
+#### 10c. MainViewModel.java
 
 ```java
 /**
@@ -683,7 +681,7 @@ public class MainViewModel extends ViewModel {
 }
 ```
 
-#### 11d. PapademasApi.java
+#### 10d. PapademasApi.java
 
 ```java
 /**
@@ -722,7 +720,7 @@ public interface PapademasApi {
 }
 ```
 
-#### 11e. State.java
+#### 10e. State.java
 
 ```java
 /**
@@ -754,7 +752,7 @@ public enum State {
 
 ## Tests
 
-### 12. /src/test/AndroidManifest.xml
+### 11. /src/test/AndroidManifest.xml
 
 ```xml
 <manifest>
@@ -764,9 +762,9 @@ public enum State {
 </manifest>
 ```
 
-### 13. /src/test/java/com/example/quiz/
+### 12. /src/test/java/com/example/quiz/
 
-#### 13a. MainActivityTest.java
+#### 12a. MainActivityTest.java
 
 ```java
 @RunWith(RobolectricTestRunner.class)
@@ -824,7 +822,7 @@ public class MainActivityTest {
 }
 ```
 
-#### 13b. PapademasApiTest.java
+#### 12b. PapademasApiTest.java
 
 ```java
 public class PapademasApiTest {

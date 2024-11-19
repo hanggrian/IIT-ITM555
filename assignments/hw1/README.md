@@ -31,7 +31,7 @@ settings.
 Rather than restricting the layout to portrait mode, the application recognizes
 the orientation change and adapts the layout accordingly.
 
-### Error Handling
+### Error handling
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM555/raw/assets/assignments/hw1/screenshot2.png"><br><small>Screenshot 2 &mdash; Show invalid input</small>
 
