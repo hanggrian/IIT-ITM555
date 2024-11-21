@@ -42,7 +42,7 @@ public class MainActivityTest {
             }
             assertThat(activity.viewModel.stateData.getValue())
                 .isEqualTo(State.ANSWERED);
-            activity.nextButton.performClick();
+            activity.action.performClick();
         }
     }
 
@@ -54,8 +54,8 @@ public class MainActivityTest {
                 MainActivity.RESULT_MAP.get(activity.text.getText().toString())
             );
             activity.displayButton.performClick();
-            if (activity.nextButton.isShown()) {
-                activity.nextButton.performClick();
+            if (activity.action.isShown()) {
+                activity.action.performClick();
             }
         }
 

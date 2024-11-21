@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup radioGroup;
     Button displayButton;
     RatingBar rating;
-    FloatingActionButton nextButton;
+    FloatingActionButton action;
 
     MainViewModel viewModel;
     PapademasApi api;
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         displayButton = findViewById(R.id.displayButton);
         rating = findViewById(R.id.rating);
-        nextButton = findViewById(R.id.nextButton);
+        action = findViewById(R.id.action);
 
         setSupportActionBar(toolbar);
 
@@ -98,16 +98,16 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case ANSWERING:
                         displayButton.setVisibility(View.VISIBLE);
-                        nextButton.setVisibility(View.INVISIBLE);
+                        action.setVisibility(View.INVISIBLE);
                         radioGroup.clearCheck();
                         break;
                     case ANSWERED:
                         displayButton.setVisibility(View.INVISIBLE);
-                        nextButton.setVisibility(View.VISIBLE);
+                        action.setVisibility(View.VISIBLE);
                         break;
                     case FINISHED:
                         displayButton.setVisibility(View.INVISIBLE);
-                        nextButton.setVisibility(View.INVISIBLE);
+                        action.setVisibility(View.INVISIBLE);
                         break;
                 }
             }
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
         radioGroup.setOnCheckedChangeListener(
             (group, checkedId) -> displayButton.setEnabled(checkedId != -1)
         );
-        nextButton.setOnClickListener(
+        action.setOnClickListener(
             v -> {
                 viewModel.questionIndexData.setValue(
                     Objects.requireNonNull(viewModel.questionIndexData.getValue()) + 1

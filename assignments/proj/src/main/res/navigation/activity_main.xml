@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  app:startDestination="@id/monsterFragment">
+
+  <fragment
+    android:id="@+id/monsterFragment"
+    android:name="com.example.pokemon.MonsterFragment"
+    android:label="@string/monster"
+    tools:layout="@layout/fragment_monster">
+
+    <action
+      android:id="@+id/monsterToMoveAction"
+      app:destination="@id/moveFragment"/>
+    <action
+      android:id="@+id/monsterToRosterAction"
+      app:destination="@id/rosterFragment"/>
+  </fragment>
+
+  <fragment
+    android:id="@+id/moveFragment"
+    android:name="com.example.pokemon.MoveFragment"
+    android:label="@string/move"
+    tools:layout="@layout/fragment_move">
+
+    <action
+      android:id="@+id/moveToMonsterAction"
+      app:destination="@id/monsterFragment"/>
+    <action
+      android:id="@+id/moveToRosterAction"
+      app:destination="@id/rosterFragment"/>
+  </fragment>
+
+  <fragment
+    android:id="@+id/rosterFragment"
+    android:name="com.example.pokemon.RosterFragment"
+    android:label="@string/roster"
+    tools:layout="@layout/fragment_roster">
+
+    <action
+      android:id="@+id/rosterToMonsterAction"
+      app:destination="@id/monsterFragment"/>
+    <action
+      android:id="@+id/rosterToMoveAction"
+      app:destination="@id/moveFragment"/>
+  </fragment>
+</navigation>

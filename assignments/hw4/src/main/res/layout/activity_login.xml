@@ -17,14 +17,12 @@
       android:layout_height="?actionBarSize"
       app:title="@string/login_to_musicplaylist"/>
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
       android:id="@+id/progress"
-      style="@style/Widget.AppCompat.ProgressBar.Horizontal"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:indeterminate="true"
-      android:indeterminateTint="?colorPrimary"
-      android:visibility="visible"/>
+      android:visibility="gone"/>
   </com.google.android.material.appbar.AppBarLayout>
 
   <LinearLayout
@@ -65,7 +63,7 @@
           android:inputType="textPassword"/>
       </com.google.android.material.textfield.TextInputLayout>
 
-      <Button
+      <com.google.android.material.button.MaterialButton
         android:id="@+id/forgotPasswordButton"
         style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
@@ -80,14 +78,14 @@
       android:layout_margin="16dp"
       android:orientation="vertical">
 
-      <Button
+      <com.google.android.material.button.MaterialButton
         android:id="@+id/aboutButton"
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/about"/>
 
-      <Button
+      <com.google.android.material.button.MaterialButton
         android:id="@+id/proceedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

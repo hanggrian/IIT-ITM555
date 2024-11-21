@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <!--
+    Unofficial Pokémon brand colors as seen in
+    https://www.colorxs.com/palette/brand/pokemon-logo-colors-57
+  -->
+  <color name="blue1">#3466af</color>
+  <color name="blue2">#21386e</color>
+  <color name="blue3">#1d2c5e</color>
+  <color name="yellow1">#ffcb05</color>
+  <color name="yellow2">#c7a008</color>
+</resources>

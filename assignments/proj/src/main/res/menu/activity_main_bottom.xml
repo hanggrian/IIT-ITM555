@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+    android:id="@+id/monsterItem"
+    android:icon="@drawable/ic_monster"
+    android:title="@string/monster"/>
+
+  <item
+    android:id="@+id/moveItem"
+    android:icon="@drawable/ic_move"
+    android:title="@string/move"/>
+
+  <item
+    android:id="@+id/rosterItem"
+    android:icon="@drawable/ic_roster"
+    android:title="@string/roster"/>
+</menu>

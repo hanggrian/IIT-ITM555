@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="about">About</string>
+  <string name="monster">Monster</string>
+  <string name="move">Move</string>
+  <string name="retry">Retry</string>
+  <string name="roster">Roster</string>
+
+  <string name="app_name">PokémonRoster</string>
+  <string name="app_about">Build your Pokémon roster.</string>
+
+  <string name="img_monster_desc1">Picture of a Pokémon.</string>
+</resources>
