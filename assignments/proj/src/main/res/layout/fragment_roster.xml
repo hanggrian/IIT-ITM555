@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
-  android:id="@+id/refreshLayout"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".MonsterFragment">
+  tools:context=".ui.main.RosterFragment">
 
   <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-    app:spanCount="2"/>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    android:clipToPadding="false"
+    android:padding="8dp"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+  <LinearLayout
+    android:id="@+id/emptyView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="32dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/roster_empty_desc1"
+      android:textAlignment="center"
+      android:textAppearance="@style/TextAppearance.Material3.DisplayLarge"/>
+
+    <com.google.android.material.textview.MaterialTextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:text="@string/roster_empty_desc2"
+      android:textAlignment="center"
+      android:textAppearance="@style/TextAppearance.Material3.BodyLarge"/>
+  </LinearLayout>
+
+  <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    android:id="@+id/action"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|end"
+    android:layout_margin="32dp"
+    android:contentDescription="@string/btn_roster_add_desc"
+    android:text="@string/add_member"
+    app:backgroundTint="?colorAccent"
+    app:icon="@drawable/ic_add"/>
+</FrameLayout>

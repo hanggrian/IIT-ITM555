@@ -6,7 +6,7 @@
 
   <fragment
     android:id="@+id/monsterFragment"
-    android:name="com.example.pokemon.MonsterFragment"
+    android:name="com.example.pokemon.ui.main.MonsterFragment"
     android:label="@string/monster"
     tools:layout="@layout/fragment_monster">
 
@@ -20,7 +20,7 @@
 
   <fragment
     android:id="@+id/moveFragment"
-    android:name="com.example.pokemon.MoveFragment"
+    android:name="com.example.pokemon.ui.main.MoveFragment"
     android:label="@string/move"
     tools:layout="@layout/fragment_move">
 
@@ -34,7 +34,7 @@
 
   <fragment
     android:id="@+id/rosterFragment"
-    android:name="com.example.pokemon.RosterFragment"
+    android:name="com.example.pokemon.ui.main.RosterFragment"
     android:label="@string/roster"
     tools:layout="@layout/fragment_roster">
 

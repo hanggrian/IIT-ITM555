@@ -22,9 +22,6 @@ public interface Marks {
     @Query("SELECT * FROM mark")
     List<Mark> getAll();
 
-    @Query("SELECT * FROM mark WHERE id IN (:ids)")
-    List<Mark> loadAllByIds(int[] ids);
-
     @Query("SELECT * FROM mark WHERE id = :id LIMIT 1")
     Mark findById(String id);
 

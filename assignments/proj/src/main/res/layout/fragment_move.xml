@@ -5,12 +5,13 @@
   android:id="@+id/refreshLayout"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".MonsterFragment">
+  tools:context=".ui.main.MoveFragment">
 
   <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-    app:spanCount="2"/>
+    android:clipToPadding="false"
+    android:padding="8dp"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

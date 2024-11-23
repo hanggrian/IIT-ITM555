@@ -1,5 +1,6 @@
 package com.example.pokemon;
 
+import com.example.pokemon.ui.main.MainActivity;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

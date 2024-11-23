@@ -57,28 +57,30 @@ public class MainActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         viewModel.db = MarkDatabase.from(this);
         adapter = new MarkAdapter(viewModel.marks);
-        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-            @Override
-            public void onItemRangeInserted(int positionStart, int itemCount) {
-                onChanged();
-            }
-
-            @Override
-            public void onItemRangeRemoved(int positionStart, int itemCount) {
-                onChanged();
-            }
-
-            @Override
-            public void onChanged() {
-                if (viewModel.marks.isEmpty()) {
-                    recycler.setVisibility(View.GONE);
-                    emptyView.setVisibility(View.VISIBLE);
-                    return;
+        adapter.registerAdapterDataObserver(
+            new RecyclerView.AdapterDataObserver() {
+                @Override
+                public void onItemRangeInserted(int positionStart, int itemCount) {
+                    onChanged();
                 }
-                recycler.setVisibility(View.VISIBLE);
-                emptyView.setVisibility(View.GONE);
+
+                @Override
+                public void onItemRangeRemoved(int positionStart, int itemCount) {
+                    onChanged();
+                }
+
+                @Override
+                public void onChanged() {
+                    if (viewModel.marks.isEmpty()) {
+                        recycler.setVisibility(View.GONE);
+                        emptyView.setVisibility(View.VISIBLE);
+                        return;
+                    }
+                    recycler.setVisibility(View.VISIBLE);
+                    emptyView.setVisibility(View.GONE);
+                }
             }
-        });
+        );
 
         Tasks.executeResult(
             () -> viewModel.db.marks().getAll(),

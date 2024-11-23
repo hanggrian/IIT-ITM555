@@ -1,8 +1,9 @@
 package com.example.pokemon;
 
 import com.example.pokemon.rest.PokeApi;
-import com.example.pokemon.rest.schema.Pagination;
-import com.example.pokemon.rest.schema.Pokemon;
+import com.example.pokemon.rest.moves.Move;
+import com.example.pokemon.rest.pokemon.Pokemon;
+import com.example.pokemon.rest.resources.NamedApiResourceList;
 import java.util.concurrent.ExecutionException;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,19 +24,36 @@ public class PokeApiTest {
     }
 
     @Test
-    public void listPokemon() {
-        Pagination pagination;
+    public void listPokemons() {
+        NamedApiResourceList list;
         try {
-            pagination = api.listPokemon(10, 20).get();
+            list = api.listPokemons(10, 20).get();
         } catch (ExecutionException | InterruptedException e) {
             throw new RuntimeException(e);
         }
 
-        assertThat(pagination)
+        assertThat(list)
             .isNotNull();
-        assertThat(pagination.getResults().size())
+        assertThat(list.results.size())
             .isEqualTo(10);
-        assertThat(pagination.getCurrentPage())
+        assertThat(list.getCurrentPage())
+            .isEqualTo(2);
+    }
+
+    @Test
+    public void listMoves() {
+        NamedApiResourceList list;
+        try {
+            list = api.listMoves(20, 40).get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        assertThat(list)
+            .isNotNull();
+        assertThat(list.results.size())
+            .isEqualTo(20);
+        assertThat(list.getCurrentPage())
             .isEqualTo(2);
     }
 
@@ -50,9 +68,26 @@ public class PokeApiTest {
 
         assertThat(pokemon)
             .isNotNull();
-        assertThat(pokemon.getName())
+        assertThat(pokemon.name)
             .isEqualTo("pidgey");
-        assertThat(pokemon.getTypes().get(0).getType().getName())
+        assertThat(pokemon.types.get(0).type.name)
             .isEqualTo("normal");
+    }
+
+    @Test
+    public void getMove() {
+        Move move;
+        try {
+            move = api.getMove("ice-punch").get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        assertThat(move)
+            .isNotNull();
+        assertThat(move.name)
+            .isEqualTo("ice-punch");
+        assertThat(move.type.name)
+            .isEqualTo("ice");
     }
 }

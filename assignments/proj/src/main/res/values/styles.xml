@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+
   <style name="Theme.Pokemon" parent="Theme.Material3.DayNight.NoActionBar">
     <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>
     <item name="android:windowSplashScreenBrandingImage">@drawable/splash_brand</item>
@@ -9,9 +10,65 @@
     <item name="colorSecondary">@color/blue2</item>
   </style>
 
-  <style
-      name="Widget.NavigationView.Indicator"
-      parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+  <style name="Widget.NavigationView.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
     <item name="android:color">?colorPrimary</item>
+  </style>
+
+  <style name="Widget.TextView.Group" parent="Widget.AppCompat.TextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textAppearance">@style/TextAppearance.Material3.TitleSmall</item>
+    <item name="android:textColor">?colorPrimary</item>
+  </style>
+
+  <style name="Widget.TextView.Caption" parent="Widget.AppCompat.TextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textAppearance">@style/TextAppearance.Material3.LabelMedium</item>
+    <item name="android:drawablePadding">4dp</item>
+  </style>
+
+  <style name="Widget.CircularProgressIndicator.MoveStatusLarge" parent="Widget.Material3.CircularProgressIndicator">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="indicatorSize">96dp</item>
+  </style>
+
+  <style name="Widget.CircularProgressIndicator.MoveStatusSmall" parent="Widget.Material3.CircularProgressIndicator">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="indicatorSize">72dp</item>
+  </style>
+
+  <style name="Widget.TextView.MoveStatusLarge" parent="Widget.AppCompat.TextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="android:layout_marginTop">4dp</item>
+    <item name="android:textAppearance">@style/TextAppearance.Material3.HeadlineLarge</item>
+  </style>
+
+  <style name="Widget.TextView.MoveStatusSmall" parent="Widget.AppCompat.TextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="android:layout_marginTop">4dp</item>
+    <item name="android:textAppearance">@style/TextAppearance.Material3.HeadlineSmall</item>
+  </style>
+
+  <style name="Widget.TextView.MoveStatusLabel" parent="Widget.AppCompat.TextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="android:layout_marginBottom">16dp</item>
+    <item name="android:textAppearance">@style/TextAppearance.Material3.LabelSmall</item>
+  </style>
+
+  <style name="Widget.Button.Evolution" parent="Widget.Material3.Button.TextButton">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textColor">@color/btn_evolution</item>
   </style>
 </resources>

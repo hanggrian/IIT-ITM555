@@ -54,12 +54,15 @@ dependencies {
     checkstyle(libs.rulebook.checkstyle)
 
     implementation(libs.bundles.androidx)
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.bundles.apache)
     implementation(libs.bundles.retrofit)
+    implementation(libs.commons.text)
     implementation(libs.picasso)
 
+    implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.compiler)
+
+    implementation(libs.parceler.api)
+    annotationProcessor(libs.parceler)
 
     testImplementation(libs.bundles.androidx.test)
 }
