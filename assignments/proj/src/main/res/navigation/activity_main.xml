@@ -13,6 +13,7 @@
     <action
       android:id="@+id/monsterToMoveAction"
       app:destination="@id/moveFragment"/>
+
     <action
       android:id="@+id/monsterToRosterAction"
       app:destination="@id/rosterFragment"/>
@@ -27,6 +28,7 @@
     <action
       android:id="@+id/moveToMonsterAction"
       app:destination="@id/monsterFragment"/>
+
     <action
       android:id="@+id/moveToRosterAction"
       app:destination="@id/rosterFragment"/>
@@ -41,6 +43,7 @@
     <action
       android:id="@+id/rosterToMonsterAction"
       app:destination="@id/monsterFragment"/>
+
     <action
       android:id="@+id/rosterToMoveAction"
       app:destination="@id/moveFragment"/>

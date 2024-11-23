@@ -14,7 +14,6 @@
     </activity>
     <activity
       android:name=".QuoteDetailActivity"
-      android:exported="true"
       android:theme="@style/Theme.Quote.Detail"/>
   </application>
 </manifest>

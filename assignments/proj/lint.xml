@@ -11,4 +11,7 @@
 
   <!-- Not using notification image loader from Picasso. -->
   <issue id="NotificationPermission" severity="ignore"/>
+
+  <!-- Clear and remove all call this function. -->
+  <issue id="NotifyDataSetChanged" severity="ignore"/>
 </lint>

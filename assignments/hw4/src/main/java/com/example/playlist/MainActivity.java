@@ -80,11 +80,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.about) {
             new AboutDialog().show(getSupportFragmentManager(), AboutDialog.TAG);
+            return true;
         } else if (item.getItemId() == R.id.refresh) {
             refreshLayout.setRefreshing(true);
             refresh();
+            return true;
         }
-        return super.onOptionsItemSelected(item);
+        return false;
     }
 
     private void refresh() {

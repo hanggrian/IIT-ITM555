@@ -1,7 +1,7 @@
 package com.example.pokemon.ui.main;
 
 import androidx.annotation.NonNull;
-import com.example.pokemon.Source;
+import com.example.pokemon.ui.Source;
 import com.example.pokemon.rest.PokeApi;
 import com.example.pokemon.rest.resources.NamedApiResourceList;
 import com.example.pokemon.rest.utilities.NamedApiResource;

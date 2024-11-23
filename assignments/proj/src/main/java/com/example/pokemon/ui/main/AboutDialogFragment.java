@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+import com.example.pokemon.Contexts;
 import com.example.pokemon.R;
 
 /**
@@ -21,7 +22,14 @@ public class AboutDialogFragment extends DialogFragment {
         return new AlertDialog.Builder(requireContext())
             .setTitle(R.string.about)
             .setMessage(R.string.app_about)
-            .setPositiveButton(android.R.string.ok, (dialog, which) -> {})
+            .setNegativeButton(
+                R.string.visit_github,
+                (dialog, which) ->
+                    Contexts.sendViewIntent(
+                        requireContext(),
+                        "https://github.com/hanggrian/IIT-ITM555"
+                    )
+            ).setPositiveButton(android.R.string.ok, (dialog, which) -> {})
             .create();
     }
 }

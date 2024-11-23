@@ -6,20 +6,19 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.example.pokemon.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    Toolbar toolbar;
+    public static final String EXTRA_MEMBER = "MainActivity#EXTRA_MEMBER";
+
     FragmentContainerView container;
     BottomNavigationView navigation;
 
@@ -31,11 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        toolbar = findViewById(R.id.toolbar);
         container = findViewById(R.id.container);
         navigation = findViewById(R.id.navigation);
-
-        setSupportActionBar(toolbar);
 
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
@@ -44,15 +40,6 @@ public class MainActivity extends AppCompatActivity {
                 .requireNonNull(
                     (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.container)
                 ).getNavController();
-        NavigationUI.setupActionBarWithNavController(
-            this,
-            navController,
-            new AppBarConfiguration.Builder(
-                R.id.monsterFragment,
-                R.id.moveFragment,
-                R.id.rosterFragment
-            ).build()
-        );
         NavigationUI.setupWithNavController(navigation, navController);
         navigation.setOnItemSelectedListener(
             item -> {
@@ -87,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main_top, menu);
+        getMenuInflater().inflate(R.menu.fragment_roster, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -95,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.aboutItem) {
             new AboutDialogFragment().show(getSupportFragmentManager(), AboutDialogFragment.TAG);
+            return true;
         }
-        return super.onOptionsItemSelected(item);
+        return false;
     }
 }

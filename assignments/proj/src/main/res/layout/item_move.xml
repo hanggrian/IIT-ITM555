@@ -9,14 +9,13 @@
   <androidx.gridlayout.widget.GridLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    app:useDefaultMargins="true">
 
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/nameText"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
-      android:layout_marginBottom="8dp"
       android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
       app:layout_column="0"
       app:layout_columnSpan="4"
@@ -32,7 +31,6 @@
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/accuracyText"
       style="@style/Widget.TextView.Caption"
-      android:layout_marginStart="8dp"
       app:drawableStartCompat="@drawable/caption_accuracy"
       app:layout_column="2"
       app:layout_row="1"/>
@@ -40,7 +38,6 @@
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/ppText"
       style="@style/Widget.TextView.Caption"
-      android:layout_marginStart="8dp"
       app:drawableStartCompat="@drawable/caption_point"
       app:layout_column="3"
       app:layout_columnWeight="1"
@@ -50,7 +47,6 @@
       android:id="@+id/descriptionText"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
       android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
       app:layout_column="0"
       app:layout_columnSpan="4"

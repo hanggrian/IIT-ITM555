@@ -172,10 +172,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.about) {
             new AboutDialog().show(getSupportFragmentManager(), AboutDialog.TAG);
+            return true;
         } else if (item.getItemId() == R.id.reset) {
             new ConfirmDialog().show(getSupportFragmentManager(), ConfirmDialog.TAG);
+            return true;
         }
-        return super.onOptionsItemSelected(item);
+        return false;
     }
 
     public static class ConfirmDialog extends DialogFragment {
@@ -186,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             return new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.confirm)
-                .setMessage(getString(R.string.dialog_clear_desc))
+                .setMessage(R.string.dialog_clear_desc)
                 .setNegativeButton(android.R.string.cancel, (dialog, which) -> {})
                 .setPositiveButton(
                     android.R.string.ok,

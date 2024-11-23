@@ -11,32 +11,37 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ContextThemeWrapper;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.splashscreen.SplashScreen;
 import androidx.core.util.Pair;
 import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.pokemon.Contexts;
 import com.example.pokemon.R;
-import com.example.pokemon.SimpleAdapter;
+import com.example.pokemon.ui.NextActivity;
+import com.example.pokemon.ui.SimpleAdapter;
 import com.example.pokemon.Tasks;
 import com.example.pokemon.Urls;
+import com.example.pokemon.db.Members;
+import com.example.pokemon.db.schema.Member;
 import com.example.pokemon.rest.PokeApi;
 import com.example.pokemon.rest.evolution.ChainLink;
 import com.example.pokemon.rest.moves.Move;
 import com.example.pokemon.rest.pokemon.Pokemon;
 import com.example.pokemon.rest.pokemon.PokemonSpecies;
+import com.example.pokemon.rest.pokemon.PokemonStat;
 import com.example.pokemon.rest.utilities.NamedApiResource;
-import com.example.pokemon.ui.main.AboutDialogFragment;
+import com.example.pokemon.ui.main.MainActivity;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -44,44 +49,119 @@ import org.parceler.Parcels;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
-public class MonsterActivity extends AppCompatActivity {
+public class MonsterActivity extends NextActivity {
     public static final String EXTRA_POKEMON = "MonsterActivity#EXTRA_POKEMON";
 
     CollapsingToolbarLayout toolbarLayout;
-    Toolbar toolbar;
     FloatingActionButton action;
-    ImageView image;
+    TextView hpStatText;
+    ProgressBar hpStatProgress;
+    TextView atkStatText;
+    ProgressBar atkStatProgress;
+    TextView defStatText;
+    ProgressBar defStatProgress;
+    TextView spcAtkStatText;
+    ProgressBar spcAtkStatProgress;
+    TextView spcDefStatText;
+    ProgressBar spcDefStatProgress;
+    TextView spdStatText;
+    ProgressBar spdStatProgress;
+    RecyclerView galleryRecycler;
     LinearLayout evolutionLayout;
-    RecyclerView recycler;
+    RecyclerView moveRecycler;
 
+    Pokemon pokemon;
     PokeApi api;
-    MoveAdapter adapter;
+
+    GalleryAdapter galleryAdapter;
+    MoveAdapter moveAdapter;
+
+    @Override
+    protected int getLayoutRes() {
+        return R.layout.activity_monster;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_monster);
         toolbarLayout = findViewById(R.id.toolbarLayout);
-        toolbar = findViewById(R.id.toolbar);
         action = findViewById(R.id.action);
-        image = findViewById(R.id.image);
         evolutionLayout = findViewById(R.id.evolutionLayout);
-        recycler = findViewById(R.id.recycler);
-
-        setSupportActionBar(toolbar);
+        hpStatText = findViewById(R.id.hpStatText);
+        hpStatProgress = findViewById(R.id.hpStatProgress);
+        atkStatText = findViewById(R.id.atkStatText);
+        atkStatProgress = findViewById(R.id.atkStatProgress);
+        defStatText = findViewById(R.id.defStatText);
+        defStatProgress = findViewById(R.id.defStatProgress);
+        spcAtkStatText = findViewById(R.id.spcAtkStatText);
+        spcAtkStatProgress = findViewById(R.id.spcAtkStatProgress);
+        spcDefStatText = findViewById(R.id.spcDefStatText);
+        spcDefStatProgress = findViewById(R.id.spcDefStatProgress);
+        spdStatText = findViewById(R.id.spdStatText);
+        galleryRecycler = findViewById(R.id.galleryRecycler);
+        spdStatProgress = findViewById(R.id.spdStatProgress);
+        moveRecycler = findViewById(R.id.moveRecycler);
 
         Intent intent = getIntent();
-        Pokemon pokemon =
-            Objects.requireNonNull(Parcels.unwrap(intent.getParcelableExtra(EXTRA_POKEMON)));
-        toolbarLayout.setTitle(Urls.getDisplay(pokemon.name));
-        Picasso
-            .get()
-            .load(pokemon.sprites.frontDefault)
-            .into(image);
+        pokemon = Objects.requireNonNull(Parcels.unwrap(intent.getParcelableExtra(EXTRA_POKEMON)));
+        api = PokeApi.create();
+        Members members = db.members();
 
-        adapter =
+        setTitle(Urls.getDisplay(pokemon.name));
+
+        pokemon.stats.forEach(
+            pokemonStat -> {
+                String stat = String.valueOf(pokemonStat.baseStat);
+                switch (pokemonStat.stat.name) {
+                    case PokemonStat.HP:
+                        hpStatText.setText(stat);
+                        hpStatProgress.setProgress(pokemonStat.getPercentage(PokemonStat.MAX_HP));
+                        break;
+                    case PokemonStat.ATK:
+                        atkStatText.setText(stat);
+                        atkStatProgress.setProgress(pokemonStat.getPercentage(PokemonStat.MAX_ATK));
+                        break;
+                    case PokemonStat.DEF:
+                        defStatText.setText(stat);
+                        defStatProgress.setProgress(pokemonStat.getPercentage(PokemonStat.MAX_DEF));
+                        break;
+                    case PokemonStat.SPC_ATK:
+                        spcAtkStatText.setText(stat);
+                        spcAtkStatProgress.setProgress(
+                            pokemonStat.getPercentage(PokemonStat.MAX_SPC_ATK)
+                        );
+                        break;
+                    case PokemonStat.SPC_DEF:
+                        spcDefStatText.setText(stat);
+                        spcDefStatProgress.setProgress(
+                            pokemonStat.getPercentage(PokemonStat.MAX_SPC_DEF)
+                        );
+                        break;
+                    case PokemonStat.SPD:
+                        spdStatText.setText(stat);
+                        spdStatProgress.setProgress(pokemonStat.getPercentage(PokemonStat.MAX_SPD));
+                        break;
+                }
+            }
+        );
+
+        galleryAdapter =
+            new GalleryAdapter(
+                this,
+                Arrays.asList(
+                    pokemon.sprites.frontDefault,
+                    pokemon.sprites.frontShiny,
+                    pokemon.sprites.frontFemale,
+                    pokemon.sprites.frontShinyFemale,
+                    pokemon.sprites.backDefault,
+                    pokemon.sprites.backShiny,
+                    pokemon.sprites.backFemale,
+                    pokemon.sprites.backShinyFemale
+                )
+            );
+        galleryRecycler.setAdapter(galleryAdapter);
+        moveAdapter =
             new MoveAdapter(
                 this,
                 pokemon.moves
@@ -89,9 +169,37 @@ public class MonsterActivity extends AppCompatActivity {
                     .map(pokemonMove -> pokemonMove.move)
                     .collect(Collectors.toList())
             );
-        recycler.setAdapter(adapter);
+        moveRecycler.setAdapter(moveAdapter);
+        action.setOnClickListener(
+            v ->
+                Tasks.executeResult(
+                    () -> {
+                        Member member =
+                            new Member.Builder()
+                                .pokemon(pokemon.name)
+                                .image(pokemon.sprites.frontDefault)
+                                .build();
+                        members.insertAll(member);
+                        return member;
+                    }, (member) -> {
+                        action.setVisibility(View.GONE);
+                        Toast
+                            .makeText(
+                                this,
+                                getString(
+                                    R.string.btn_roster_add_msg,
+                                    Urls.getDisplay(pokemon.name)
+                                ), Toast.LENGTH_SHORT
+                            ).show();
 
-        api = PokeApi.create();
+                        Intent resultIntent = new Intent();
+                        resultIntent.putExtra(MainActivity.EXTRA_MEMBER, member);
+                        setResult(RESULT_OK, resultIntent);
+                        finish();
+                    }
+                )
+        );
+
         Tasks.executeResult(
             () -> {
                 PokemonSpecies species =
@@ -151,6 +259,7 @@ public class MonsterActivity extends AppCompatActivity {
                 }
             }
         );
+        Tasks.executeIf(() -> members.getCount() >= 6, () -> action.setVisibility(View.GONE));
     }
 
     @Override
@@ -161,10 +270,54 @@ public class MonsterActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.aboutItem) {
-            new AboutDialogFragment().show(getSupportFragmentManager(), AboutDialogFragment.TAG);
+        if (item.getItemId() == R.id.shareItem) {
+            String pokemonName = Urls.getDisplay(pokemon.name);
+            Contexts.sendShareIntent(
+                this,
+                String.format("Check out pokemon %s!", pokemonName),
+                String.format(
+                    "https://bulbapedia.bulbagarden.net/wiki/%s_(Pokémon)",
+                    pokemonName.replace(' ', '_')
+                )
+            );
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public static class GalleryAdapter extends
+        SimpleAdapter<String, GalleryAdapter.ViewHolder> {
+        private final Picasso picasso;
+
+        public GalleryAdapter(@NonNull Context context, @NonNull List<String> list) {
+            super(context, list);
+            picasso = new Picasso.Builder(context).build();
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new ViewHolder(
+                LayoutInflater
+                    .from(parent.getContext())
+                    .inflate(R.layout.item_gallery, parent, false)
+            );
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            picasso
+                .load(getItem(position))
+                .into(holder.image);
+        }
+
+        public static class ViewHolder extends RecyclerView.ViewHolder {
+            ImageView image;
+
+            public ViewHolder(@NonNull View itemView) {
+                super(itemView);
+                image = itemView.findViewById(R.id.image);
+            }
+        }
     }
 
     public static class MoveAdapter extends

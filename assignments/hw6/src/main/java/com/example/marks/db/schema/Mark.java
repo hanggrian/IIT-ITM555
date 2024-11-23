@@ -1,6 +1,7 @@
 package com.example.marks.db.schema;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -95,7 +96,7 @@ public class Mark implements Serializable {
         }
 
         @NonNull
-        public Builder name(String name) {
+        public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }

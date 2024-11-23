@@ -992,7 +992,7 @@ public class MainActivity extends AppCompatActivity {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
       return new AlertDialog.Builder(requireContext())
         .setTitle(R.string.confirm)
-        .setMessage(getString(R.string.dialog_clear_desc))
+        .setMessage(R.string.dialog_clear_desc)
         .setNegativeButton(android.R.string.cancel, (dialog, which) -> {})
         .setPositiveButton(
           android.R.string.ok,

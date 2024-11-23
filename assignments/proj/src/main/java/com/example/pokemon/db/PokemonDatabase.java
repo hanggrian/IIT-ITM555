@@ -8,20 +8,20 @@ import androidx.room.RoomDatabase;
 import com.example.pokemon.db.schema.Member;
 
 @Database(entities = {Member.class}, version = 1)
-public abstract class PokemonRosterDatabase extends RoomDatabase {
+public abstract class PokemonDatabase extends RoomDatabase {
     public static final String NAME = "pokemon-db";
 
     public abstract Members members();
 
     @NonNull
-    public static PokemonRosterDatabase from(@NonNull Context context) {
+    public static PokemonDatabase from(@NonNull Context context) {
         return from(context, false);
     }
 
     @NonNull
-    public static PokemonRosterDatabase from(@NonNull Context context, boolean isTest) {
-        Builder<PokemonRosterDatabase> builder =
-            Room.databaseBuilder(context, PokemonRosterDatabase.class, NAME);
+    public static PokemonDatabase from(@NonNull Context context, boolean isTest) {
+        Builder<PokemonDatabase> builder =
+            Room.databaseBuilder(context, PokemonDatabase.class, NAME);
         if (isTest) {
             builder = builder.allowMainThreadQueries();
         }

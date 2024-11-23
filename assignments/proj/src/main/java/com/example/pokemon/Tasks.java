@@ -32,6 +32,27 @@ public final class Tasks {
             );
     }
 
+    public static void executeIf(
+        @NonNull Callable<Boolean> backgroundAction,
+        @NonNull Runnable uiAction
+    ) {
+        Executors
+            .newSingleThreadExecutor()
+            .execute(
+                () -> {
+                    try {
+                        if (!backgroundAction.call()) {
+                            return;
+                        }
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                    new Handler(Looper.getMainLooper())
+                        .post(uiAction);
+                }
+            );
+    }
+
     /**
      * Execute background worker with result delivered to ui worker.
      *

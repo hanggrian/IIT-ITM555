@@ -18,8 +18,8 @@ import androidx.paging.LoadState;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import com.example.pokemon.LoadAdapter;
-import com.example.pokemon.PageAdapter;
+import com.example.pokemon.ui.LoadAdapter;
+import com.example.pokemon.ui.PageAdapter;
 import com.example.pokemon.R;
 import com.example.pokemon.Tasks;
 import com.example.pokemon.Urls;
@@ -51,6 +51,7 @@ public class MoveFragment extends MainFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         refreshLayout = view.findViewById(R.id.refreshLayout);
         recycler = view.findViewById(R.id.recycler);
 
@@ -60,15 +61,16 @@ public class MoveFragment extends MainFragment {
         );
         refreshLayout.setOnRefreshListener(this::refresh);
 
-        getViewModel().moveData.observe(
+        refresh();
+        Objects.requireNonNull(getViewModel().moveData).observe(
             requireActivity(),
             data -> adapter.submitData(getViewLifecycleOwner().getLifecycle(), data)
         );
-
-        refresh();
     }
 
     private void refresh() {
+        getViewModel().refreshMove();
+        adapter.refresh();
         refreshLayout.setRefreshing(false);
     }
 

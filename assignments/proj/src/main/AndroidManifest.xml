@@ -15,8 +15,7 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity
-      android:name=".ui.monster.MonsterActivity"
-      android:exported="true"/>
+    <activity android:name=".ui.monster.MonsterActivity"/>
+    <activity android:name=".ui.roster.RosterActivity"/>
   </application>
 </manifest>

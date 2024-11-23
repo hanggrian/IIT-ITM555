@@ -1,7 +1,7 @@
 package com.example.pokemon;
 
 import com.example.pokemon.db.Members;
-import com.example.pokemon.db.PokemonRosterDatabase;
+import com.example.pokemon.db.PokemonDatabase;
 import com.example.pokemon.db.schema.Member;
 import com.example.pokemon.ui.main.MainActivity;
 import org.junit.After;
@@ -17,12 +17,12 @@ import static com.google.common.truth.Truth.assertThat;
 @RunWith(RobolectricTestRunner.class)
 @DoNotInstrument
 public class MembersTest {
-    private PokemonRosterDatabase db;
+    private PokemonDatabase db;
 
     @Before
     public void setup() {
         db =
-            PokemonRosterDatabase.from(
+            PokemonDatabase.from(
                 Robolectric.buildActivity(MainActivity.class).setup().get().getApplicationContext(),
                 true
             );
@@ -36,7 +36,6 @@ public class MembersTest {
         // create
         Member member =
             new Member.Builder()
-                .id(0)
                 .pokemon("pikachu")
                 .move1("quick-attack")
                 .build();
@@ -45,20 +44,15 @@ public class MembersTest {
             .isEqualTo(1);
 
         // read
-        assertThat(member.getId())
-            .isEqualTo(0);
         assertThat(member.getPokemon())
             .isEqualTo("pikachu");
         assertThat(member.getMove1())
             .isEqualTo("quick-attack");
 
         // update
-        member.setId(1);
         member.setPokemon("rattata");
         member.setMove1("bite");
         members.update(member);
-        assertThat(member.getId())
-            .isEqualTo(1);
         assertThat(member.getPokemon())
             .isEqualTo("rattata");
         assertThat(member.getMove1())
@@ -66,7 +60,7 @@ public class MembersTest {
 
         // delete
         members.delete(member);
-        assertThat(members.isExist(1))
+        assertThat(members.isExist("rattata"))
             .isFalse();
     }
 

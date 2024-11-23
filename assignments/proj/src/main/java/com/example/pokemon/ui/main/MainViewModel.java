@@ -1,7 +1,9 @@
 package com.example.pokemon.ui.main;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelKt;
 import androidx.paging.Pager;
@@ -17,12 +19,13 @@ import java.util.function.Supplier;
 
 public class MainViewModel extends ViewModel {
     @NonNull
-    public final LiveData<PagingData<NamedApiResource>> monsterData =
-        indexedCachedLiveData(this, MonsterSource.LIMIT, MonsterSource::new);
+    public final MutableLiveData<Integer> monsterSpan = new MutableLiveData<>(2);
 
-    @NonNull
-    public final LiveData<PagingData<NamedApiResource>> moveData =
-        indexedCachedLiveData(this, MoveSource.LIMIT, MoveSource::new);
+    @Nullable
+    public LiveData<PagingData<NamedApiResource>> monsterData = null;
+
+    @Nullable
+    public LiveData<PagingData<NamedApiResource>> moveData = null;
 
     @NonNull
     public final List<Member> memberList = new ArrayList<>();
@@ -37,5 +40,13 @@ public class MainViewModel extends ViewModel {
                 new Pager<>(new PagingConfig(limit), 0, sourceSupplier::get)
             ), ViewModelKt.getViewModelScope(viewModel)
         );
+    }
+
+    public void refreshMonster() {
+        monsterData = indexedCachedLiveData(this, MonsterSource.LIMIT, MonsterSource::new);
+    }
+
+    public void refreshMove() {
+        moveData = indexedCachedLiveData(this, MoveSource.LIMIT, MoveSource::new);
     }
 }

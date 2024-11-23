@@ -93,7 +93,7 @@ public class MarkAdapter extends RecyclerView.Adapter<MarkAdapter.ViewHolder> {
 
     public static class ConfirmDialog extends DialogFragment {
         public static final String TAG = "MarkAdapter.ConfirmDialog";
-        public static final String EXTRA_MARK = "MARK";
+        public static final String EXTRA_MARK = "MarkAdapter.ConfirmDialog#EXTRA_MARK";
 
         @NonNull
         @Override

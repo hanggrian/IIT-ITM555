@@ -1,9 +1,9 @@
 package com.example.pokemon.ui.main;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -14,10 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.paging.LoadState;
 import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import com.example.pokemon.LoadAdapter;
-import com.example.pokemon.PageAdapter;
 import com.example.pokemon.R;
 import com.example.pokemon.Tasks;
 import com.example.pokemon.Urls;
@@ -25,16 +24,29 @@ import com.example.pokemon.databinding.FragmentMonsterBinding;
 import com.example.pokemon.rest.NamedApiResourceComparator;
 import com.example.pokemon.rest.PokeApi;
 import com.example.pokemon.rest.utilities.NamedApiResource;
-import com.example.pokemon.ui.monster.MonsterActivity;
+import com.example.pokemon.ui.LoadAdapter;
+import com.example.pokemon.ui.PageAdapter;
 import com.squareup.picasso.Picasso;
 import java.util.Objects;
-import org.parceler.Parcels;
 
 public class MonsterFragment extends MainFragment {
     SwipeRefreshLayout refreshLayout;
     RecyclerView recycler;
 
+    MainObserver observer;
     MonsterPageAdapter adapter;
+
+    @Override
+    protected int getMenuRes() {
+        return R.menu.fragment_monster;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        observer = new MainObserver((MainActivity) requireActivity());
+        getLifecycle().addObserver(observer);
+    }
 
     @Nullable
     @Override
@@ -48,24 +60,54 @@ public class MonsterFragment extends MainFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         refreshLayout = view.findViewById(R.id.refreshLayout);
         recycler = view.findViewById(R.id.recycler);
 
-        adapter = new MonsterPageAdapter(requireContext(), new NamedApiResourceComparator());
+        getViewModel().monsterSpan.observe(
+            getViewLifecycleOwner(),
+            span ->
+                Objects
+                    .requireNonNull((GridLayoutManager) recycler.getLayoutManager())
+                    .setSpanCount(span)
+        );
+
+        adapter =
+            new MonsterPageAdapter(requireContext(), new NamedApiResourceComparator(), observer);
         recycler.setAdapter(
             adapter.withLoadStateFooter(new MonsterLoadAdapter(() -> adapter.retry()))
         );
         refreshLayout.setOnRefreshListener(this::refresh);
 
-        getViewModel().monsterData.observe(
+        refresh();
+        Objects.requireNonNull(getViewModel().monsterData).observe(
             requireActivity(),
             data -> adapter.submitData(getViewLifecycleOwner().getLifecycle(), data)
         );
+    }
 
-        refresh();
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        if (item.getItemId() != R.id.largeLayoutItem
+            && item.getItemId() != R.id.mediumLayoutItem
+            && item.getItemId() != R.id.smallLayoutItem
+        ) {
+            return false;
+        }
+        if (item.getItemId() == R.id.largeLayoutItem) {
+            getViewModel().monsterSpan.setValue(2);
+        } else if (item.getItemId() == R.id.mediumLayoutItem) {
+            getViewModel().monsterSpan.setValue(3);
+        } else if (item.getItemId() == R.id.smallLayoutItem) {
+            getViewModel().monsterSpan.setValue(4);
+        }
+        item.setChecked(true);
+        return true;
     }
 
     private void refresh() {
+        getViewModel().refreshMonster();
+        adapter.refresh();
         refreshLayout.setRefreshing(false);
     }
 
@@ -115,13 +157,16 @@ public class MonsterFragment extends MainFragment {
         PageAdapter<NamedApiResource, MonsterPageAdapter.ViewHolder> {
         private final Picasso picasso;
         private final PokeApi api = PokeApi.create();
+        private final MainObserver observer;
 
         public MonsterPageAdapter(
             @NonNull Context context,
-            @NonNull DiffUtil.ItemCallback<NamedApiResource> diffCallback
+            @NonNull DiffUtil.ItemCallback<NamedApiResource> diffCallback,
+            @NonNull MainObserver observer
         ) {
             super(context, diffCallback);
             picasso = new Picasso.Builder(context).build();
+            this.observer = observer;
         }
 
         @NonNull
@@ -144,11 +189,7 @@ public class MonsterFragment extends MainFragment {
                         .into(holder.image);
                     holder.text.setText(Urls.getDisplay(pokemon.name));
                     holder.itemView.setOnClickListener(
-                        v -> {
-                            Intent intent = new Intent(context, MonsterActivity.class);
-                            intent.putExtra(MonsterActivity.EXTRA_POKEMON, Parcels.wrap(pokemon));
-                            context.startActivity(intent);
-                        }
+                        v -> observer.launchMonster(context, pokemon)
                     );
                 }
             );

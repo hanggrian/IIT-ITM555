@@ -17,14 +17,6 @@
       android:layout_height="?actionBarSize"
       app:navigationIcon="@drawable/ic_close"/>
 
-    <TextView
-      style="@style/Widget.TextView.Group"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="16dp"
-      android:layout_marginBottom="8dp"
-      android:text="@string/status"/>
-
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -51,8 +43,7 @@
 
           <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/powerProgress"
-            style="@style/Widget.CircularProgressIndicator.MoveStatusLarge"
-            android:progress="100"/>
+            style="@style/Widget.ProgressBar.MoveStatusLarge"/>
         </FrameLayout>
 
         <FrameLayout
@@ -71,8 +62,7 @@
 
           <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/accuracyProgress"
-            style="@style/Widget.CircularProgressIndicator.MoveStatusLarge"
-            android:progress="100"/>
+            style="@style/Widget.ProgressBar.MoveStatusLarge"/>
         </FrameLayout>
 
         <FrameLayout
@@ -89,8 +79,7 @@
 
           <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/ppProgress"
-            style="@style/Widget.CircularProgressIndicator.MoveStatusLarge"
-            android:progress="100"/>
+            style="@style/Widget.ProgressBar.MoveStatusLarge"/>
         </FrameLayout>
       </LinearLayout>
 
@@ -115,8 +104,7 @@
 
           <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/effectProgress"
-            style="@style/Widget.CircularProgressIndicator.MoveStatusSmall"
-            android:progress="100"/>
+            style="@style/Widget.ProgressBar.MoveStatusSmall"/>
         </FrameLayout>
 
         <FrameLayout
@@ -134,18 +122,13 @@
 
           <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/priorityProgress"
-            style="@style/Widget.CircularProgressIndicator.MoveStatusSmall"
-            android:progress="100"/>
+            style="@style/Widget.ProgressBar.MoveStatusSmall"/>
         </FrameLayout>
       </LinearLayout>
     </LinearLayout>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
       style="@style/Widget.TextView.Group"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="16dp"
-      android:layout_marginBottom="8dp"
       android:text="@string/description"/>
 
     <com.google.android.material.textview.MaterialTextView
@@ -158,10 +141,6 @@
 
     <TextView
       style="@style/Widget.TextView.Group"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="16dp"
-      android:layout_marginBottom="8dp"
       android:text="@string/learned_by"/>
 
     <androidx.recyclerview.widget.RecyclerView

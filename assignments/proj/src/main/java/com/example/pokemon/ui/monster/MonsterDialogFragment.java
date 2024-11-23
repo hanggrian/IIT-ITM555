@@ -14,8 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.pokemon.Contexts;
 import com.example.pokemon.R;
-import com.example.pokemon.SimpleAdapter;
+import com.example.pokemon.ui.SimpleAdapter;
 import com.example.pokemon.Tasks;
 import com.example.pokemon.Urls;
 import com.example.pokemon.rest.PokeApi;
@@ -27,30 +28,27 @@ import java.util.List;
 import java.util.Objects;
 import org.parceler.Parcels;
 
-import static android.content.Intent.ACTION_SEND;
-import static android.content.Intent.EXTRA_SUBJECT;
-import static android.content.Intent.EXTRA_TEXT;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class MonsterDialogFragment extends BottomSheetDialogFragment {
     public static final String TAG = "MonsterDialogFragment";
     public static final String EXTRA_MOVE = "MonsterDialogFragment#EXTRA_MOVE";
 
-    Toolbar toolbar;
-    TextView powerText;
-    ProgressBar powerProgress;
-    TextView accuracyText;
-    ProgressBar accuracyProgress;
-    TextView ppText;
-    ProgressBar ppProgress;
-    TextView effectText;
-    ProgressBar effectProgress;
-    TextView priorityText;
-    ProgressBar priorityProgress;
-    TextView descriptionText;
-    RecyclerView recycler;
+    public Toolbar toolbar;
+    public TextView powerText;
+    public ProgressBar powerProgress;
+    public TextView accuracyText;
+    public ProgressBar accuracyProgress;
+    public TextView ppText;
+    public ProgressBar ppProgress;
+    public TextView effectText;
+    public ProgressBar effectProgress;
+    public TextView priorityText;
+    public ProgressBar priorityProgress;
+    public TextView descriptionText;
+    public RecyclerView recycler;
 
-    MonsterAdapter adapter;
+    public MonsterAdapter adapter;
 
     @Nullable
     @Override
@@ -87,22 +85,15 @@ public class MonsterDialogFragment extends BottomSheetDialogFragment {
         toolbar.setOnMenuItemClickListener(
             item -> {
                 if (item.getItemId() == R.id.shareItem) {
-                    if (item.getItemId() == R.id.shareItem) {
-                        Intent sendIntent = new Intent(ACTION_SEND);
-                        sendIntent.setType("text/plain");
-                        sendIntent.putExtra(
-                            EXTRA_SUBJECT,
-                            String.format("Check out %s!", Urls.getDisplay(move.name))
-                        );
-                        sendIntent.putExtra(
-                            EXTRA_TEXT,
-                            String.format(
-                                "https://bulbapedia.bulbagarden.net/wiki/%s_(move)",
-                                Urls.getDisplay(move.name).replace(' ', '_')
-                            )
-                        );
-                        startActivity(Intent.createChooser(sendIntent, "Share Move"));
-                    }
+                    String moveName = Urls.getDisplay(move.name);
+                    Contexts.sendShareIntent(
+                        requireContext(),
+                        String.format("Check out move %s!", moveName),
+                        String.format(
+                            "https://bulbapedia.bulbagarden.net/wiki/%s_(move)",
+                            moveName.replace(' ', '_')
+                        )
+                    );
                     return true;
                 }
                 return false;

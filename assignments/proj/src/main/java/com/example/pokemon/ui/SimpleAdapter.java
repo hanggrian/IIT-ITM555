@@ -1,4 +1,4 @@
-package com.example.pokemon;
+package com.example.pokemon.ui;
 
 import android.content.Context;
 import androidx.annotation.NonNull;

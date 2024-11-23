@@ -3,8 +3,12 @@
   <string name="about">About</string>
   <string name="add_member">Add Member</string>
   <string name="accuracy">Accuracy</string>
+  <string name="confirm">Confirm</string>
+  <string name="delete">Delete</string>
   <string name="description">Description</string>
   <string name="effect">Effect</string>
+  <string name="evolution">Evolution</string>
+  <string name="gallery">Gallery</string>
   <string name="learned_by">Learned by</string>
   <string name="monster">Monster</string>
   <string name="move">Move</string>
@@ -14,12 +18,28 @@
   <string name="retry">Retry</string>
   <string name="roster">Roster</string>
   <string name="share">Share</string>
-  <string name="status">Status</string>
+  <string name="undo">Undo</string>
+  <string name="visit_github">Visit GitHub</string>
+
+  <string name="stat_hp">HP</string>
+  <string name="stat_atk">Attack</string>
+  <string name="stat_def">Defense</string>
+  <string name="stat_spc_atk">Spcl. ATK</string>
+  <string name="stat_spc_def">Spcl. DEF</string>
+  <string name="stat_spd">Speed</string>
+
+  <string name="layout_group">Layout</string>
+  <string name="layout_small">Small</string>
+  <string name="layout_medium">Normal</string>
+  <string name="layout_large">Large</string>
 
   <string name="app_name">PokémonRoster</string>
   <string name="app_about">Build your Pokémon roster.</string>
 
   <string name="btn_roster_add_desc">Tap this button to add a member.</string>
+  <string name="btn_roster_add_msg">%1$s has joined your roster!</string>
+  <string name="dialog_delete_member_desc">Are you sure to delete %1$s?</string>
+  <string name="dialog_delete_member_msg">%1$s is no longer on your roster.</string>
   <string name="img_monster_desc">Picture of a Pokémon.</string>
   <string name="img_move_desc">Picture of a skill move.</string>
   <string name="img_roster_desc">Picture of a roster member.</string>

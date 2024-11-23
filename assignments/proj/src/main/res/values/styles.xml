@@ -17,8 +17,12 @@
   <style name="Widget.TextView.Group" parent="Widget.AppCompat.TextView">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
-    <item name="android:textAppearance">@style/TextAppearance.Material3.TitleSmall</item>
+    <item name="android:textAppearance">@style/TextAppearance.Material3.LabelLarge</item>
     <item name="android:textColor">?colorPrimary</item>
+    <item name="android:layout_marginStart">16dp</item>
+    <item name="android:layout_marginTop">8dp</item>
+    <item name="android:layout_marginEnd">16dp</item>
+    <item name="android:layout_marginBottom">8dp</item>
   </style>
 
   <style name="Widget.TextView.Caption" parent="Widget.AppCompat.TextView">
@@ -28,18 +32,20 @@
     <item name="android:drawablePadding">4dp</item>
   </style>
 
-  <style name="Widget.CircularProgressIndicator.MoveStatusLarge" parent="Widget.Material3.CircularProgressIndicator">
+  <style name="Widget.ProgressBar.MoveStatusLarge" parent="Widget.Material3.CircularProgressIndicator">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_gravity">center</item>
     <item name="indicatorSize">96dp</item>
+    <item name="android:progress">100</item> <!-- viewing purposes only -->
   </style>
 
-  <style name="Widget.CircularProgressIndicator.MoveStatusSmall" parent="Widget.Material3.CircularProgressIndicator">
+  <style name="Widget.ProgressBar.MoveStatusSmall" parent="Widget.Material3.CircularProgressIndicator">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_gravity">center</item>
     <item name="indicatorSize">72dp</item>
+    <item name="android:progress">100</item> <!-- viewing purposes only -->
   </style>
 
   <style name="Widget.TextView.MoveStatusLarge" parent="Widget.AppCompat.TextView">
@@ -66,9 +72,32 @@
     <item name="android:textAppearance">@style/TextAppearance.Material3.LabelSmall</item>
   </style>
 
+  <style name="Widget.ProgressBar.PokemonStatus" parent="Widget.Material3.LinearProgressIndicator">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="android:layout_marginStart">8dp</item>
+    <item name="android:progress">100</item> <!-- viewing purposes only -->
+  </style>
+
+  <style name="Widget.TextView.PokemonStatus" parent="Widget.AppCompat.TextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textAppearance">@style/TextAppearance.Material3.TitleSmall</item>
+    <item name="android:textColor">?colorPrimary</item>
+  </style>
+
+  <style name="Widget.TextView.PokemonStatusLabel" parent="Widget.AppCompat.TextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textAppearance">@style/TextAppearance.Material3.TitleSmall</item>
+  </style>
+
   <style name="Widget.Button.Evolution" parent="Widget.Material3.Button.TextButton">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:textColor">@color/btn_evolution</item>
+    <item name="android:textAppearance">@style/TextAppearance.Material3.TitleSmall</item>
+    <item name="android:textAllCaps">true</item>
   </style>
 </resources>

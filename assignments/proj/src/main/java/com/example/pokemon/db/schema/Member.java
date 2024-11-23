@@ -1,20 +1,21 @@
 package com.example.pokemon.db.schema;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import java.io.Serializable;
 
 @Entity(tableName = "member")
-public class Member {
+public class Member implements Serializable {
     @PrimaryKey
-    private int id;
+    @NonNull
+    @SuppressWarnings("NotNullFieldNotInitialized")
+    private String pokemon;
 
     @ColumnInfo(name = "image")
     private String image;
-
-    @ColumnInfo(name = "pokemon")
-    private String pokemon;
 
     @ColumnInfo(name = "move1")
     private String move1;
@@ -28,12 +29,13 @@ public class Member {
     @ColumnInfo(name = "move4")
     private String move4;
 
-    public int getId() {
-        return id;
+    @NonNull
+    public String getPokemon() {
+        return pokemon;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPokemon(@NonNull String pokemon) {
+        this.pokemon = pokemon;
     }
 
     public String getImage() {
@@ -42,14 +44,6 @@ public class Member {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public String getPokemon() {
-        return pokemon;
-    }
-
-    public void setPokemon(String pokemon) {
-        this.pokemon = pokemon;
     }
 
     public String getMove1() {
@@ -85,45 +79,45 @@ public class Member {
     }
 
     public static class Builder {
-        private int id;
         private String pokemon;
+        private String image;
         private String move1;
         private String move2;
         private String move3;
         private String move4;
 
         @NonNull
-        public Builder id(int id) {
-            this.id = id;
-            return this;
-        }
-
-        @NonNull
-        public Builder pokemon(String pokemon) {
+        public Builder pokemon(@Nullable String pokemon) {
             this.pokemon = pokemon;
             return this;
         }
 
         @NonNull
-        public Builder move1(String move1) {
+        public Builder image(@Nullable String image) {
+            this.image = image;
+            return this;
+        }
+
+        @NonNull
+        public Builder move1(@Nullable String move1) {
             this.move1 = move1;
             return this;
         }
 
         @NonNull
-        public Builder move2(String move2) {
+        public Builder move2(@Nullable String move2) {
             this.move2 = move2;
             return this;
         }
 
         @NonNull
-        public Builder move3(String move3) {
+        public Builder move3(@Nullable String move3) {
             this.move3 = move3;
             return this;
         }
 
         @NonNull
-        public Builder move4(String move4) {
+        public Builder move4(@Nullable String move4) {
             this.move4 = move4;
             return this;
         }
@@ -131,8 +125,8 @@ public class Member {
         @NonNull
         public Member build() {
             Member result = new Member();
-            result.id = id;
             result.pokemon = pokemon;
+            result.image = image;
             result.move1 = move1;
             result.move2 = move2;
             result.move3 = move3;

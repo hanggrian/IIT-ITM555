@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <item
+    android:title="@string/layout_group"
+    app:showAsAction="always">
+    <menu>
+      <group android:checkableBehavior="single">
+        <item
+          android:id="@+id/smallLayoutItem"
+          android:title="@string/layout_small"/>
+        <item
+          android:id="@+id/mediumLayoutItem"
+          android:title="@string/layout_medium"/>
+        <item
+          android:id="@+id/largeLayoutItem"
+          android:checked="true"
+          android:title="@string/layout_large"/>
+      </group>
+    </menu>
+  </item>
+</menu>

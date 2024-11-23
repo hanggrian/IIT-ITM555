@@ -4,6 +4,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:animateLayoutChanges="true"
   tools:context=".ui.monster.MonsterActivity">
 
   <com.google.android.material.appbar.AppBarLayout
@@ -26,7 +27,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:layout_collapseMode="pin"/>
+        app:layout_collapseMode="pin"
+        app:navigationIcon="?homeAsUpIndicator"/>
     </com.google.android.material.appbar.CollapsingToolbarLayout>
   </com.google.android.material.appbar.AppBarLayout>
 
@@ -41,23 +43,174 @@
       android:layout_height="wrap_content"
       android:orientation="vertical">
 
-      <LinearLayout
+      <androidx.gridlayout.widget.GridLayout
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        app:useDefaultMargins="true">
+
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/Widget.TextView.PokemonStatusLabel"
+          android:text="@string/stat_hp"
+          app:layout_column="0"
+          app:layout_row="0"/>
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/hpStatText"
+          style="@style/Widget.TextView.PokemonStatus"
+          app:layout_column="1"
+          app:layout_row="0"/>
+
+        <FrameLayout
+          android:layout_width="0dp"
+          android:layout_height="18dp"
+          app:layout_column="2"
+          app:layout_columnWeight="1"
+          app:layout_row="0">
+
+          <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/hpStatProgress"
+            style="@style/Widget.ProgressBar.PokemonStatus"/>
+        </FrameLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/Widget.TextView.PokemonStatusLabel"
+          android:text="@string/stat_atk"
+          app:layout_column="0"
+          app:layout_row="1"/>
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/atkStatText"
+          style="@style/Widget.TextView.PokemonStatus"
+          app:layout_column="1"
+          app:layout_row="1"/>
+
+        <FrameLayout
+          android:layout_width="0dp"
+          android:layout_height="18dp"
+          app:layout_column="2"
+          app:layout_columnWeight="1"
+          app:layout_row="1">
+
+          <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/atkStatProgress"
+            style="@style/Widget.ProgressBar.PokemonStatus"/>
+        </FrameLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/Widget.TextView.PokemonStatusLabel"
+          android:text="@string/stat_def"
+          app:layout_column="0"
+          app:layout_row="2"/>
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/defStatText"
+          style="@style/Widget.TextView.PokemonStatus"
+          app:layout_column="1"
+          app:layout_row="2"/>
+
+        <FrameLayout
+          android:layout_width="0dp"
+          android:layout_height="18dp"
+          app:layout_column="2"
+          app:layout_columnWeight="1"
+          app:layout_row="2">
+
+          <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/defStatProgress"
+            style="@style/Widget.ProgressBar.PokemonStatus"/>
+        </FrameLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/Widget.TextView.PokemonStatusLabel"
+          android:text="@string/stat_spc_atk"
+          app:layout_column="0"
+          app:layout_row="3"/>
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/spcAtkStatText"
+          style="@style/Widget.TextView.PokemonStatus"
+          app:layout_column="1"
+          app:layout_row="3"/>
+
+        <FrameLayout
+          android:layout_width="0dp"
+          android:layout_height="18dp"
+          app:layout_column="2"
+          app:layout_columnWeight="1"
+          app:layout_row="3">
+
+          <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/spcAtkStatProgress"
+            style="@style/Widget.ProgressBar.PokemonStatus"/>
+        </FrameLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/Widget.TextView.PokemonStatusLabel"
+          android:text="@string/stat_spc_def"
+          app:layout_column="0"
+          app:layout_row="4"/>
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/spcDefStatText"
+          style="@style/Widget.TextView.PokemonStatus"
+          app:layout_column="1"
+          app:layout_row="4"/>
+
+        <FrameLayout
+          android:layout_width="0dp"
+          android:layout_height="18dp"
+          app:layout_column="2"
+          app:layout_columnWeight="1"
+          app:layout_row="4">
+
+          <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/spcDefStatProgress"
+            style="@style/Widget.ProgressBar.PokemonStatus"/>
+        </FrameLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/Widget.TextView.PokemonStatusLabel"
+          android:text="@string/stat_spd"
+          app:layout_column="0"
+          app:layout_row="5"/>
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/spdStatText"
+          style="@style/Widget.TextView.PokemonStatus"
+          app:layout_column="1"
+          app:layout_row="5"/>
+
+        <FrameLayout
+          android:layout_width="0dp"
+          android:layout_height="18dp"
+          app:layout_column="2"
+          app:layout_columnWeight="1"
+          app:layout_row="5">
+
+          <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/spdStatProgress"
+            style="@style/Widget.ProgressBar.PokemonStatus"/>
+        </FrameLayout>
+      </androidx.gridlayout.widget.GridLayout>
+
+      <com.google.android.material.textview.MaterialTextView
+        style="@style/Widget.TextView.Group"
+        android:text="@string/gallery"/>
+
+      <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/galleryRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-        <ImageView
-          android:id="@+id/image"
-          android:layout_width="160dp"
-          android:layout_height="160dp"
-          android:contentDescription="@string/img_monster_desc"/>
-
-        <View
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="8dp"/>
-      </LinearLayout>
+      <com.google.android.material.textview.MaterialTextView
+        style="@style/Widget.TextView.Group"
+        android:text="@string/evolution"/>
 
       <LinearLayout
         android:id="@+id/evolutionLayout"
@@ -66,8 +219,12 @@
         android:gravity="center"
         android:orientation="horizontal"/>
 
+      <com.google.android.material.textview.MaterialTextView
+        style="@style/Widget.TextView.Group"
+        android:text="@string/move"/>
+
       <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+        android:id="@+id/moveRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"

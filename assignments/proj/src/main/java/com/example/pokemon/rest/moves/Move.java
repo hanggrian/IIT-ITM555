@@ -1,6 +1,7 @@
 package com.example.pokemon.rest.moves;
 
 import androidx.annotation.NonNull;
+import com.example.pokemon.Numbers;
 import com.example.pokemon.rest.games.Generation;
 import com.example.pokemon.rest.pokemon.AbilityEffectChange;
 import com.example.pokemon.rest.utilities.MachineVersionDetail;
@@ -66,11 +67,11 @@ public class Move extends NamedApiResource {
     public NamedApiResource type;
 
     public int getPowerPercentage() {
-        return getPercentage(power, MAX_POWER);
+        return Numbers.getPercentage(power, MAX_POWER);
     }
 
     public int getPpPercentage() {
-        return getPercentage(pp, MAX_PP);
+        return Numbers.getPercentage(pp, MAX_PP);
     }
 
     public int getPriorityPercentage() {
@@ -107,9 +108,5 @@ public class Move extends NamedApiResource {
                         .append(verboseEffect.effect)
             );
         return builder.toString();
-    }
-
-    private static int getPercentage(int current, int max) {
-        return Float.valueOf(((float) current / max) * 100).intValue();
     }
 }
