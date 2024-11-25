@@ -1,8 +1,12 @@
 package com.example.pokemon.ui.main;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,12 +21,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+    private static final long DURATION_SPLASH = 3000L;
+
     public static final String EXTRA_MEMBER = "MainActivity#EXTRA_MEMBER";
 
     FragmentContainerView container;
     BottomNavigationView navigation;
 
     MainViewModel viewModel;
+    boolean isReady = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -70,6 +77,21 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         );
+
+        View content = findViewById(android.R.id.content);
+        content.getViewTreeObserver().addOnPreDrawListener(
+            new ViewTreeObserver.OnPreDrawListener() {
+                @Override
+                public boolean onPreDraw() {
+                    if (isReady) {
+                        content.getViewTreeObserver().removeOnPreDrawListener(this);
+                    }
+                    return isReady;
+                }
+            }
+        );
+        new Handler(Looper.getMainLooper())
+            .postDelayed(() -> isReady = true, DURATION_SPLASH);
     }
 
     @Override

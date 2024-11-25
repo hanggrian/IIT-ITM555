@@ -28,7 +28,7 @@ import com.example.pokemon.rest.NamedApiResourceComparator;
 import com.example.pokemon.rest.PokeApi;
 import com.example.pokemon.rest.moves.Move;
 import com.example.pokemon.rest.utilities.NamedApiResource;
-import com.example.pokemon.ui.monster.MonsterDialogFragment;
+import com.example.pokemon.ui.move.MoveDialogFragment;
 import com.squareup.picasso.Picasso;
 import java.util.Objects;
 import org.parceler.Parcels;
@@ -170,15 +170,15 @@ public class MoveFragment extends MainFragment {
                         v -> {
                             Bundle bundle = new Bundle();
                             bundle.putParcelable(
-                                MonsterDialogFragment.EXTRA_MOVE,
+                                MoveDialogFragment.EXTRA_MOVE,
                                 Parcels.wrap(pair.first)
                             );
 
-                            DialogFragment fragment = new MonsterDialogFragment();
+                            DialogFragment fragment = new MoveDialogFragment();
                             fragment.setArguments(bundle);
                             fragment.show(
                                 ((AppCompatActivity) context).getSupportFragmentManager(),
-                                MonsterDialogFragment.TAG
+                                MoveDialogFragment.TAG
                             );
                         }
                     );

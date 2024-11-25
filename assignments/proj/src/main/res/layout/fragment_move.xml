@@ -18,7 +18,7 @@
       app:title="@string/move"/>
   </com.google.android.material.appbar.AppBarLayout>
 
-  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+  <com.example.pokemon.ui.RefreshLayout
     android:id="@+id/refreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,5 +31,5 @@
       android:clipToPadding="false"
       android:padding="8dp"
       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+  </com.example.pokemon.ui.RefreshLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

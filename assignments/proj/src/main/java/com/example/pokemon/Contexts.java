@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.TypedValue;
+import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 
@@ -11,10 +12,17 @@ public final class Contexts {
     private Contexts() {}
 
     @DrawableRes
-    public static int getAttr(@NonNull Context context, int attrId) {
+    public static int getAttrId(@NonNull Context context, int attrId) {
         TypedValue value = new TypedValue();
         context.getTheme().resolveAttribute(attrId, value, true);
         return value.resourceId;
+    }
+
+    @ColorInt
+    public static int getAttrColor(@NonNull Context context, int attrId) {
+        TypedValue value = new TypedValue();
+        context.getTheme().resolveAttribute(attrId, value, true);
+        return value.data;
     }
 
     public static void sendViewIntent(@NonNull Context context, @NonNull String url) {
@@ -32,6 +40,6 @@ public final class Contexts {
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, message);
         intent.putExtra(Intent.EXTRA_TEXT, url);
-        context.startActivity(Intent.createChooser(intent, "Share Move"));
+        context.startActivity(Intent.createChooser(intent, message));
     }
 }

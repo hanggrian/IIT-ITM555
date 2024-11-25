@@ -23,8 +23,6 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.pokemon.Contexts;
 import com.example.pokemon.R;
-import com.example.pokemon.ui.NextActivity;
-import com.example.pokemon.ui.SimpleAdapter;
 import com.example.pokemon.Tasks;
 import com.example.pokemon.Urls;
 import com.example.pokemon.db.Members;
@@ -36,15 +34,18 @@ import com.example.pokemon.rest.pokemon.Pokemon;
 import com.example.pokemon.rest.pokemon.PokemonSpecies;
 import com.example.pokemon.rest.pokemon.PokemonStat;
 import com.example.pokemon.rest.utilities.NamedApiResource;
+import com.example.pokemon.ui.NextActivity;
+import com.example.pokemon.ui.SimpleAdapter;
 import com.example.pokemon.ui.main.MainActivity;
+import com.example.pokemon.ui.move.MoveDialogFragment;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.parceler.Parcels;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -149,16 +150,18 @@ public class MonsterActivity extends NextActivity {
         galleryAdapter =
             new GalleryAdapter(
                 this,
-                Arrays.asList(
-                    pokemon.sprites.frontDefault,
-                    pokemon.sprites.frontShiny,
-                    pokemon.sprites.frontFemale,
-                    pokemon.sprites.frontShinyFemale,
-                    pokemon.sprites.backDefault,
-                    pokemon.sprites.backShiny,
-                    pokemon.sprites.backFemale,
-                    pokemon.sprites.backShinyFemale
-                )
+                Stream
+                    .of(
+                        pokemon.sprites.frontDefault,
+                        pokemon.sprites.frontShiny,
+                        pokemon.sprites.frontFemale,
+                        pokemon.sprites.frontShinyFemale,
+                        pokemon.sprites.backDefault,
+                        pokemon.sprites.backShiny,
+                        pokemon.sprites.backFemale,
+                        pokemon.sprites.backShinyFemale
+                    ).filter(Objects::nonNull)
+                    .collect(Collectors.toList())
             );
         galleryRecycler.setAdapter(galleryAdapter);
         moveAdapter =
@@ -229,7 +232,7 @@ public class MonsterActivity extends NextActivity {
                         new LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
                     );
                     evolutionButton.setBackgroundResource(
-                        Contexts.getAttr(this, android.R.attr.selectableItemBackground)
+                        Contexts.getAttrId(this, android.R.attr.selectableItemBackground)
                     );
                     evolutionButton.setText(Urls.getDisplay(species.name));
                     evolutionButton.setEnabled(!species.name.equals(pokemon.name));
@@ -365,15 +368,15 @@ public class MonsterActivity extends NextActivity {
                         v -> {
                             Bundle bundle = new Bundle();
                             bundle.putParcelable(
-                                MonsterDialogFragment.EXTRA_MOVE,
+                                MoveDialogFragment.EXTRA_MOVE,
                                 Parcels.wrap(pair.first)
                             );
 
-                            DialogFragment fragment = new MonsterDialogFragment();
+                            DialogFragment fragment = new MoveDialogFragment();
                             fragment.setArguments(bundle);
                             fragment.show(
                                 ((AppCompatActivity) context).getSupportFragmentManager(),
-                                MonsterDialogFragment.TAG
+                                MoveDialogFragment.TAG
                             );
                         }
                     );

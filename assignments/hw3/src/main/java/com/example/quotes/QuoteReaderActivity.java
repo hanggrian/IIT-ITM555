@@ -28,9 +28,8 @@ import java.util.List;
  * Steve Jobs' quotes.
  */
 public class QuoteReaderActivity extends AppCompatActivity {
-    private static final long DURATION_SPLASH = 5000L;
+    private static final long DURATION_SPLASH = 3000L;
 
-    View content;
     Toolbar toolbar;
     ListView list;
 
@@ -43,7 +42,6 @@ public class QuoteReaderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_quote_reader);
-        content = findViewById(android.R.id.content);
         toolbar = findViewById(R.id.toolbar);
         list = findViewById(R.id.list);
 
@@ -61,6 +59,7 @@ public class QuoteReaderActivity extends AppCompatActivity {
             }
         );
 
+        View content = findViewById(android.R.id.content);
         content.getViewTreeObserver().addOnPreDrawListener(
             new ViewTreeObserver.OnPreDrawListener() {
                 @Override
