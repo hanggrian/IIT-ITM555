@@ -180,7 +180,7 @@ public class MonsterActivity extends NextActivity {
                         Member member =
                             new Member.Builder()
                                 .pokemon(pokemon.name)
-                                .image(pokemon.sprites.frontDefault)
+                                .sprite(pokemon.sprites.frontDefault)
                                 .build();
                         members.insertAll(member);
                         return member;

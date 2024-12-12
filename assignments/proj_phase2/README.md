@@ -47,9 +47,9 @@ We have:
     first gaming device.
     - It was *Nintendo GameBoy* with a Pokémon Red cartridge.
     - I also think it could be a good practice to make a game-related app since
-      the UI needs to be creative. Finally, PokeAPI is free without a
-      subscription and rate limit, so I don't have to manage session tokens or
-      API keys.
+      the UI needs to be creative.
+    - Finally, PokeAPI is free without a subscription and rate limit, so I don't
+      have to manage session tokens or API keys.
 1.  The idea is not new.
     - Websites and apps about Pokémon are abundant. Bulbapedia, shown here, is a
       personal favorite. However, most of them are static and don't have a

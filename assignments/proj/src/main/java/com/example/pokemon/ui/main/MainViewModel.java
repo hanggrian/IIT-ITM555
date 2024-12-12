@@ -30,6 +30,14 @@ public class MainViewModel extends ViewModel {
     @NonNull
     public final List<Member> memberList = new ArrayList<>();
 
+    public void refreshMonster() {
+        monsterData = indexedCachedLiveData(this, MonsterSource.LIMIT, MonsterSource::new);
+    }
+
+    public void refreshMove() {
+        moveData = indexedCachedLiveData(this, MoveSource.LIMIT, MoveSource::new);
+    }
+
     private static <T> LiveData<PagingData<T>> indexedCachedLiveData(
         @NonNull ViewModel viewModel,
         int limit,
@@ -40,13 +48,5 @@ public class MainViewModel extends ViewModel {
                 new Pager<>(new PagingConfig(limit), 0, sourceSupplier::get)
             ), ViewModelKt.getViewModelScope(viewModel)
         );
-    }
-
-    public void refreshMonster() {
-        monsterData = indexedCachedLiveData(this, MonsterSource.LIMIT, MonsterSource::new);
-    }
-
-    public void refreshMove() {
-        moveData = indexedCachedLiveData(this, MoveSource.LIMIT, MoveSource::new);
     }
 }

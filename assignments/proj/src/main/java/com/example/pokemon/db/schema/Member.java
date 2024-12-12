@@ -8,14 +8,15 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
 @Entity(tableName = "member")
-public class Member implements Serializable {
+public class Member implements Serializable, Comparable<Member> {
     @PrimaryKey
-    @NonNull
-    @SuppressWarnings("NotNullFieldNotInitialized")
+    private int order;
+
+    @ColumnInfo(name = "pokemon")
     private String pokemon;
 
-    @ColumnInfo(name = "image")
-    private String image;
+    @ColumnInfo(name = "sprite")
+    private String sprite;
 
     @ColumnInfo(name = "move1")
     private String move1;
@@ -29,21 +30,28 @@ public class Member implements Serializable {
     @ColumnInfo(name = "move4")
     private String move4;
 
-    @NonNull
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
+    }
+
     public String getPokemon() {
         return pokemon;
     }
 
-    public void setPokemon(@NonNull String pokemon) {
+    public void setPokemon(String pokemon) {
         this.pokemon = pokemon;
     }
 
-    public String getImage() {
-        return image;
+    public String getSprite() {
+        return sprite;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setSprite(String sprite) {
+        this.sprite = sprite;
     }
 
     public String getMove1() {
@@ -78,13 +86,25 @@ public class Member implements Serializable {
         this.move4 = move4;
     }
 
+    @Override
+    public int compareTo(Member o) {
+        return o.order;
+    }
+
     public static class Builder {
+        private int order;
         private String pokemon;
-        private String image;
+        private String sprite;
         private String move1;
         private String move2;
         private String move3;
         private String move4;
+
+        @NonNull
+        public Builder order(int order) {
+            this.order = order;
+            return this;
+        }
 
         @NonNull
         public Builder pokemon(@Nullable String pokemon) {
@@ -93,8 +113,8 @@ public class Member implements Serializable {
         }
 
         @NonNull
-        public Builder image(@Nullable String image) {
-            this.image = image;
+        public Builder sprite(@Nullable String sprite) {
+            this.sprite = sprite;
             return this;
         }
 
@@ -125,8 +145,9 @@ public class Member implements Serializable {
         @NonNull
         public Member build() {
             Member result = new Member();
+            result.order = order;
             result.pokemon = pokemon;
-            result.image = image;
+            result.sprite = sprite;
             result.move1 = move1;
             result.move2 = move2;
             result.move3 = move3;

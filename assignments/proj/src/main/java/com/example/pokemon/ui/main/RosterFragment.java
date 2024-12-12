@@ -26,6 +26,8 @@ import com.example.pokemon.ui.SimpleAdapter;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -109,6 +111,7 @@ public class RosterFragment extends MainFragment {
             list -> {
                 getViewModel().memberList.clear();
                 getViewModel().memberList.addAll(list);
+                Collections.sort(getViewModel().memberList);
                 adapter.notifyDataSetChanged();
             }
         );
@@ -159,7 +162,7 @@ public class RosterFragment extends MainFragment {
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             Member member = list.get(position);
             picasso
-                .load(member.getImage())
+                .load(member.getSprite())
                 .into(holder.image);
             holder.nameText.setText(Urls.getDisplay(member.getPokemon()));
 
